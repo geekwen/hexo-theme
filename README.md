@@ -6,25 +6,26 @@
 预览图在 ```/source/images/preview``` 中
 
 ##快速入门
-- 需要在站点的 `_config.yml` 中添加：
+### 需要在站点的 `_config.yml` 中添加：
 ```
 archive_generator:
   per_page: 0
 ```
-- 在主题的 `_config.yml` 中配置导航链接：
+### 在主题的 `_config.yml` 中配置导航链接：
 ```
 menu:
   首页: /
   标签: /tags
   归档: /archives
 ```
-- 创建标签云页面
-首先新建 tags 页面
+### 创建标签云页面：
+
+1.首先新建 tags 页面
 ``` hexo new page "tags" ```
-然后编辑新建的 index.md
+
+2.然后编辑新建的 ```index.md```
 ```
 title: 所有标签
 type: "tag-cloud"
 ---
 ```
-即可
