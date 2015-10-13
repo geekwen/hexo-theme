@@ -18,3 +18,13 @@ menu:
   标签: /tags
   归档: /archives
 ```
+- 创建标签云页面
+首先新建 tags 页面
+``` hexo new page "tags" ```
+然后编辑新建的 index.md
+```
+title: 所有标签
+type: "tag-cloud"
+---
+```
+即可
