@@ -1,0 +1,55 @@
+@charset "utf-8";
+// 代码高亮
+.post {
+
+  .highlight {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px 20px;
+    border-radius: 4px;
+    background-color: $highlight-background;
+    font-size: 0.8em;
+    color: $highlight-foreground;
+
+    figcaption {
+      margin-bottom: 10px;
+    }
+
+    .attribute {
+      color: $highlight-foreground;
+    }
+
+    .tag,
+    .keyword {
+      color: $highlight-function;
+    }
+
+    .title {
+      color: $highlight-title;
+    }
+
+    .value,
+    .string {
+      color: $highlight-string;
+    }
+
+    .params {
+      color: $highlight-params;
+    }
+
+    .built_in {
+      color: $highlight-built-in;
+    }
+
+    .comment {
+      color: $highlight-comment;
+    }
+  }
+
+  // 行数
+  .gutter pre {
+    padding-right: 20px;
+    color: $highlight-line-number-color;
+    @include user-select(none);
+  }
+}

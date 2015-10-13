@@ -1,0 +1,45 @@
+<main>
+    <div class="content-wrap">
+
+        <div id="archive-list" class="container">
+            <p id="archive-total-num">共有 <%= page.posts.length %> 篇文章</p>
+
+            <div id="archive-list-inner-box">
+                <% var last=0,year,yearArr=[]; %>
+                <% page.posts.each(function(post){ %>
+                    <% year = post.date.year(); %>
+
+                    <% /*new year*/ %>
+                    <% if (last != year){ %>
+
+                    <% if (yearArr.length != 0){ %>
+                        </ul></section>
+                    <% } %>
+
+                    <% yearArr.push(year); %>
+
+                    <% last = year; %>
+                        </ul></section>
+                        <section id="year-<%= year %>" class="year">
+                            <h2><%= year %></h2>
+                            <ul class="list-unstyled">
+                                <li><a href="<%- url_for(post.path) %>"><time><%= date(post.date, 'M-D') %></time> <%= post.title %></a></li>
+                    <% }else{ %>
+                        <li><a href="<%- url_for(post.path) %>"><time><%= date(post.date, 'M-D') %></time> <%= post.title %></a></li>
+                    <% } %>
+                <% }) %>
+            </div>
+
+            <p id="time-line-end">没有更多啦！</p>
+
+            <nav id="archive-year-nav">
+                <ul class="list-unstyled">
+                    <!-- todo 动态判断页面位置，计算当前浏览的年份 -->
+                    <% yearArr.forEach(function(item){ %>
+                        <li><a href="#year-<%= item %>" class="active"><%= item %></a></li>
+                    <% }) %>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</main>

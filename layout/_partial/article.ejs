@@ -1,0 +1,56 @@
+<article class="post">
+    <div class="post-inner-wrap">
+        <% if (index){ %>
+        <h2 class="post-title"><a href="<%- url_for(post.path) %>"><%= post.title %></a></h2>
+        <% }else{ %>
+        <h1 class="post-title"><%= post.title %></h1>
+        <% } %>
+
+        <ul class="post-meta list-inline">
+            <li>发表于 <%= date(post.date, 'YYYY-M-D') %></li>
+            <% if (post.tags && post.tags.length){ %>
+            <li>
+            <%- list_tags(post.tags, {
+                show_count: false,
+                class: 'post-tags'
+            }) %>
+            </li>
+            <% } %>
+        </ul>
+
+        <% if (!index && post.theme_image){ %>
+            <img src="<%- post.theme_image %>" alt="theme-image" class="post-theme-img">
+        <% } %>
+
+        <div class="content">
+            <% if (index && post.excerpt){ %>
+                <div class="post-summary">
+                    <%- post.excerpt %>
+                </div>
+
+                <% if (post.theme_image){ %>
+                <img src="<%- post.theme_image %>" alt="theme-image" class="post-theme-img">
+                <% } %>
+            <% }else{ %>
+                <%- post.content %>
+            <% } %>
+        </div>
+    </div>
+</article>
+<% if (!index && (post.prev || post.next)){ %>
+<nav id="article-nav">
+    <ul class="list-unstyled">
+        <li>
+            <%if (post.prev) {%>
+            <a href="<%- url_for(post.prev.path) %>" class="prev" data-title="<%= post.prev.title %>"></a>
+            <%}%>
+
+        </li>
+        <li>
+            <%if (post.next) {%>
+            <a href="<%- url_for(post.next.path) %>" class="next" data-title="<%= post.next.title %>"></a>
+            <%}%>
+        </li>
+    </ul>
+</nav>
+<% } %>

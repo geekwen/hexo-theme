@@ -1,0 +1,11 @@
+<main>
+    <div class="content-wrap">
+        <div id="index-article-list">
+            <% page.posts.each(function(post){ %>
+                <%- partial('_partial/article', {post: post, index: true}) %>
+            <% }) %>
+        </div>
+
+        <%- partial('_partial/pagination') %>
+    </div>
+</main>

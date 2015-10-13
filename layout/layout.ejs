@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+
+    <%
+    var title = page.title;
+
+    if (is_archive()){
+        title = '归档';
+
+        if (is_month()){
+            title += ': ' + page.year + '/' + page.month;
+        } else if (is_year()){
+            title += ': ' + page.year;
+        }
+    } else if (is_tag()){
+        title = '标签: ' + page.tag;
+    }
+    %>
+    <meta http-equiv="x-ua-compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <title><% if (title){ %><%= title %> | <% } %><%= config.title %></title>
+    <%- css('stylesheets/style') %>
+</head>
+<body>
+<nav id="navbar">
+    <ul id="site-menu" class="list-inline">
+        <% for(var key in theme.menu){ %>
+            <li><a href="<%- theme.menu[key] %>"><%= key %></a></li>
+        <% } %>
+    </ul>
+</nav>
+<% if (!is_post()){ %>
+<header id="masthead" class="container">
+    <h1 id="page-title">
+        <% if (is_tag()){ %>
+        #<%= page.tag %>
+        <% }else if (title){ %>
+        <%= title %>
+        <% }else{ %>
+        <%= config.title %>
+        <% } %>
+    </h1>
+
+    <p id="page-subtitle"><%= theme.subtitle %></p>
+</header>
+<% } %>
+<%- body %>
+<footer id="mastfoot" lang="en">
+    <p>Powered by <a href="http://www.hexo.io" target="_blank">hexo</a>, theme by <a href="/">Geekwen</a></p>
+
+    <p>&copy;2014-2015 geekwen.com</p>
+</footer>
+</body>
+</html>

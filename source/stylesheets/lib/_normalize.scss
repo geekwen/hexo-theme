@@ -1,0 +1,350 @@
+@charset "utf-8";
+
+//==
+// This file is maintained by geekwen.com
+// - removed some elements that's not usually used
+// - add some basic style
+//
+// all comments use "//", so that comments wouldn't compile into the CSS output.
+//==
+
+//==
+// Remove default margin and set box-sizing
+//==
+
+* {
+  margin: 0;
+
+  &,
+  &::before,
+  &::after {
+    box-sizing: border-box;
+  }
+}
+
+//==
+// 1. Set default font family to sans-serif.
+// 2. Prevent iOS and IE text size adjust after device orientation change,
+//    without disabling user zoom.
+//==
+
+html {
+  font-family: sans-serif; // 1*
+  -ms-text-size-adjust: 100%; // 2*
+  -webkit-text-size-adjust: 100%; // 2*
+}
+
+// HTML5 display definitions
+// ======================================
+
+//==
+// Correct `block` display not defined for any HTML5 element in IE 8/9
+// and Firefox.
+// Correct `block` display not defined for `main` in IE 11.
+//==
+
+article,
+aside,
+footer,
+header,
+figcaption,
+figure,
+main,
+nav,
+section {
+  display: block;
+}
+
+//==
+// 1. Correct `inline-block` display not defined in IE 8/9.
+// 2. Normalize vertical alignment of `progress` in Chrome, Firefox, and Opera.
+//==
+
+audio,
+canvas,
+video {
+  display: inline-block; // 1//
+  vertical-align: baseline; // 2//
+}
+
+//==
+// Prevent modern browsers from displaying `audio` without controls.
+// Remove excess height in iOS 5 devices.
+//==
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+//==
+// `[hidden]` styling display none
+//==
+
+[hidden] {
+  display: none !important;
+}
+
+// Links
+// ==============================
+
+//==
+// Remove the gray background color from active links in IE 10.
+// Improve readability of focused elements when they are also in an
+// active/hover state.
+//==
+
+a {
+  background-color: transparent;
+  color: inherit;
+  text-decoration: none;
+
+  &:active,
+  &:hover {
+    outline: 0;
+  }
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// Text-level semantics
+// ==============================================
+
+//==
+// Address style set to `bolder` in Firefox 4+, Safari, and Chrome.
+//==
+
+b,
+strong {
+  font-weight: bold;
+}
+
+//==
+// Address styling not present in IE 8/9.
+//==
+
+mark {
+  background: #ff0;
+  color: #333;
+}
+
+//==
+// Address inconsistent and variable font size in all browsers.
+//==
+
+small {
+  font-size: .8em;
+}
+
+//==
+// Prevent `sub` and `sup` affecting `line-height` in all browsers.
+//==
+
+sub,
+sup {
+  font-size: .75em;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+// Embedded content
+// ===========================
+
+//==
+// Remove border when inside `a` element in IE 8/9/10.
+// limit max width
+//==
+
+img {
+  border: 0;
+  max-width: 100%;
+}
+
+//==
+// Correct overflow not hidden in IE 9/10/11.
+//==
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+// Grouping content
+// ==========================================
+
+//==
+// Address differences between Firefox and other browsers.
+//==
+
+hr {
+  box-sizing: content-box;
+  height: 0;
+}
+
+//==
+// Contain overflow in all browsers.
+//==
+
+textarea,
+pre {
+  overflow: auto;
+}
+
+//==
+// Address odd `em`-unit font size rendering in all browsers.
+//==
+
+code,
+kbd,
+pre,
+samp {
+  font-family: Consolas, Monaco, Menlo, Consolas, monospace;
+  font-size: 1em;
+}
+
+// Forms
+// ==================================
+
+//==
+// Known limitation: by default, Chrome and Safari on OS X allow very limited
+// styling of `select`, unless a `border` property is set.
+//==
+
+//
+// Address Firefox 4+ setting `line-height` on `input` using `!important` in
+// the UA stylesheet.
+// todo needs checkout
+
+input {
+  line-height: normal;
+  -webkit-appearance: none;
+}
+
+//==
+// 1. Correct color not being inherited.
+//    Known issue: affects color of disabled elements.
+// 2. Correct font properties not being inherited.
+//==
+
+button,
+input,
+select,
+textarea {
+  color: inherit; // 1//
+  font: inherit; // 2//
+}
+
+//==
+// Address `overflow` set to `hidden` in IE 8/9/10/11.
+//==
+
+button {
+  background-color: transparent;
+  overflow: hidden;
+}
+
+//==
+// Address inconsistent `text-transform` inheritance for `button` and `select`.
+// All other form control elements do not inherit `text-transform` values.
+// Correct `button` style inheritance in Firefox, IE 8/9/10/11, and Opera.
+// Correct `select` style inheritance in Firefox.
+//==
+
+button,
+select {
+  text-transform: none;
+}
+
+//==
+// 1. Avoid the WebKit bug in Android 4.0.* where (2) destroys native `audio`
+//    and `video` controls.
+// 2. Correct inability to style clickable `input` types in iOS.
+// 3. Improve usability and consistency of cursor style between image-type
+//    `input` and others.
+//==
+
+button,
+html input[type="button"], // 1//
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button; // 2//
+  cursor: pointer; // 3//
+}
+
+//==
+// Re-set default cursor for disabled elements.
+//==
+
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+//==
+// Remove inner padding and border in Firefox 4+.
+//==
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+}
+
+//
+// It's recommended that you don't attempt to style these elements.
+// Firefox's implementation doesn't respect box-sizing, padding, or width.
+//
+// 2. Remove excess padding in IE 8/9/10.
+//
+
+input[type="checkbox"],
+input[type="radio"] {
+  padding: 0; // 2//
+}
+
+//
+// Fix the cursor style for Chrome's increment/decrement buttons. For certain
+// `font-size` values of the `input`, it causes the cursor style of the
+// decrement button to change from `default` to `text`.
+//
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+//
+// 1. Address `appearance` set to `searchfield` in Safari and Chrome.
+// 2. Address `box-sizing` set to `border-box` in Safari and Chrome.
+//
+
+input[type="search"] {
+  -webkit-appearance: textfield; // 1//
+}
+
+// Tables
+// ==========================
+
+//==
+// Remove most spacing between table cells.
+//==
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  table-layout: fixed;
+}
+
+td,
+th {
+  padding: 0;
+}

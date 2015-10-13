@@ -1,0 +1,40 @@
+@charset "utf-8";
+
+#total-tag-post-num {
+  margin-bottom: 5px;
+  font-size: .9em;
+  color: $gray-dark;
+}
+
+#tag-post-list-body {
+  li {
+    border-bottom: 1px dashed $gray-light;
+    color: #999;
+
+    a {
+      display: block;
+      padding-top: 15px;
+      padding-bottom: 15px;
+      @include transition(all .2s);
+
+      &::before {
+        content: "";
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        margin-right: 10px;
+        background-color: $gray-light;
+        border-radius: 50%;
+      }
+
+      &:hover {
+        color: $link-color-default;
+        text-decoration: none;
+      }
+    }
+
+    time {
+      font-size: 0.8em;
+    }
+  }
+}

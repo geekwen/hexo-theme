@@ -1,0 +1,41 @@
+@charset "utf-8";
+
+@import "bourbon/bourbon";
+@import "lib/_variable";
+@import "lib/_mixin-func";
+@import "lib/_common";
+@import "lib/_normalize";
+
+html {
+  font-size: 18px;
+}
+
+body {
+  font-family: "Helvetica Neue Light", "HelveticaNeue-Light", "Helvetica Neue", Calibri, Helvetica, Arial, sans-serif;
+  font-size: inherit;
+  color: $font-color-default;
+  line-height: 1.5;
+}
+
+main {
+  position: relative;
+  overflow: hidden;
+
+  @media (min-width: $screen-sm) and (min-height: 700px) {
+    min-height: calc(100vh - 550px);
+  }
+}
+
+#page-title {
+  font-size: 2em;
+}
+
+@import "modules/nav";
+@import "modules/_header-footer";
+@import "modules/pagination";
+@import "modules/article";
+@import "modules/post-format";
+@import "modules/highlight";
+@import "pages/_archive";
+@import "pages/_tag-cloud";
+@import "pages/_tag-post-list";

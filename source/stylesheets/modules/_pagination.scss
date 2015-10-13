@@ -1,0 +1,39 @@
+@charset "utf-8";
+
+.pagination {
+  margin-top: 30px;
+  text-align: center;
+  line-height: 30px;
+
+  li {
+
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
+
+    a {
+      display: block;
+      width: 30px;
+      @include transition(all .2s);
+
+      &:hover,
+      &.active {
+        border-radius: 50%;
+        text-decoration: none;
+      }
+
+      &:hover {
+        background-color: $gray-light;
+      }
+
+      &.active {
+        background-color: $gray-lighter;
+      }
+    }
+
+    .prev,
+    .next {
+      font-size: 1.2em;
+    }
+  }
+}

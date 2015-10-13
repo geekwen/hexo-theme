@@ -1,0 +1,17 @@
+@charset "utf-8";
+
+#masthead {
+  margin-bottom: 80px;
+}
+
+#mastfoot {
+  margin-top: 60px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  text-align: center;
+  color: $gray;
+
+  a {
+    color: $link-color-default;
+  }
+}
