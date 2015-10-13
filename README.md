@@ -6,12 +6,16 @@
 预览图在 ```/source/images/preview``` 中
 
 ##快速入门
-### 需要在站点的 `_config.yml` 中添加：
+### 关闭归档页面的分页功能
+> 因为归档页面的设计是不需要分页的
+
+需要在站点的 `_config.yml` 中添加：
 ```
 archive_generator:
   per_page: 0
 ```
-### 在主题的 `_config.yml` 中配置导航链接：
+### 配置导航链接
+在主题的 `_config.yml` 中配置导航链接：
 ```
 menu:
   首页: /
