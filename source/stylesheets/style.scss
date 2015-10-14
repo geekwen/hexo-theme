@@ -17,6 +17,10 @@ body {
   line-height: 1.5;
 }
 
+#masthead {
+  margin-bottom: 80px;
+}
+
 main {
   position: relative;
   overflow: hidden;
@@ -30,8 +34,19 @@ main {
   font-size: 2em;
 }
 
+#mastfoot {
+  margin-top: 60px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  text-align: center;
+  color: $gray;
+
+  a {
+    color: $link-color-default;
+  }
+}
+
 @import "modules/nav";
-@import "modules/_header-footer";
 @import "modules/pagination";
 @import "modules/article";
 @import "modules/post-format";
@@ -39,3 +54,4 @@ main {
 @import "pages/_archive";
 @import "pages/_tag-cloud";
 @import "pages/_tag-post-list";
+@import "modules/page-transition";

@@ -15,7 +15,7 @@
         </div>
         <% }else {%>
         <div id="article-post">
-            <%- partial('_partial/article', {post: page, index: false}) %>
+            <%- partial('_partial/article', {post: page, index: false}, {cache: true}) %>
         </div>
         <% } %>
     </div>
