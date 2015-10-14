@@ -5,27 +5,16 @@
 
     <%
     var title = page.title;
-
     if (is_archive()) {
         title = '归档';
-
-        if (is_month()) {
-            title += ': ' + page.year + '/' + page.month;
-        } else if (is_year()) {
-            title += ': ' + page.year;
-        }
     } else if (is_tag()) {
-        title = '标签: ' + page.tag;
+        title = '#' + page.tag;
     }
     %>
     <meta http-equiv="x-ua-compatible" content="IE=edge"/>
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
-    <title>
-        <% if (title){ %>
-        <%= title %> |
-        <% } %>
-        <%= config.title %></title>
+    <title><% if (title){ %><%= title %> | <% } %><%= config.title %></title>
     <%- css('stylesheets/style') %>
 </head>
 <body>
@@ -33,23 +22,26 @@
     <nav id="navbar">
         <ul id="site-menu" class="list-inline">
             <% for(var key in theme.menu){ %>
-            <li><a href="<%- theme.menu[key] %>"><%= key %></a></li>
+            <% if (theme.menu.hasOwnProperty(key)){%>
+                <li><a href="<%- theme.menu[key] %>"><%= key %></a></li>
+            <%}%>
             <% } %>
         </ul>
     </nav>
+    <!-- todo 更灵活的副标题管理方式 -->
     <% if (!is_post()){ %>
     <header id="masthead" class="container">
-        <h1 id="page-title">
-            <% if (is_tag()){ %>
-            #<%= page.tag %>
-            <% }else if (title){ %>
-            <%= title %>
-            <% }else{ %>
-            <%= config.title %>
-            <% } %>
-        </h1>
+        <% if (title){ %>
+        <h1 id="page-title"><%= title %></h1>
+        <% }else{ %>
+        <h1 id="page-title"><%= config.title %></h1>
+        <% } %>
 
+        <% if (page.page_subtitle){ %>
+        <p id="page-subtitle"><%= page.page_subtitle %></p>
+        <% }else if(theme.subtitle){ %>
         <p id="page-subtitle"><%= theme.subtitle %></p>
+        <% } %>
     </header>
     <% } %>
     <%- body %>

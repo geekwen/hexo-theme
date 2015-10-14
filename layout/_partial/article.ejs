@@ -1,29 +1,31 @@
 <article class="post">
     <div class="post-inner-wrap">
-        <% if (index){ %>
-        <h2 class="post-title"><a href="<%- url_for(post.path) %>"><%= post.title %></a></h2>
-        <% }else{ %>
-        <h1 class="post-title"><%= post.title %></h1>
+        <% if (page.layout != "page"){ %>
+            <% if (is_home()){ %>
+            <h2 class="post-title"><a href="<%- url_for(post.path) %>"><%= post.title %></a></h2>
+            <% }else{ %>
+            <h1 class="post-title"><%= post.title %></h1>
+            <% } %>
+
+            <ul class="post-meta list-inline">
+                <li>发表于 <%= date(post.date, 'YYYY-M-D') %></li>
+                <% if (post.tags && post.tags.length){ %>
+                <li>
+                    <%- list_tags(post.tags, {
+                        'show_count': false,
+                        'class': 'post-tags'
+                    }) %>
+                </li>
+                <% } %>
+            </ul>
         <% } %>
 
-        <ul class="post-meta list-inline">
-            <li>发表于 <%= date(post.date, 'YYYY-M-D') %></li>
-            <% if (post.tags && post.tags.length){ %>
-            <li>
-            <%- list_tags(post.tags, {
-                show_count: false,
-                class: 'post-tags'
-            }) %>
-            </li>
-            <% } %>
-        </ul>
-
-        <% if (!index && post.theme_image){ %>
+        <% if (!is_home() && post.theme_image){ %>
             <img src="<%- post.theme_image %>" alt="theme-image" class="post-theme-img">
         <% } %>
 
         <div class="content">
-            <% if (index && post.excerpt){ %>
+            <% if (is_home() && post.excerpt){ %>
                 <div class="post-summary">
                     <%- post.excerpt %>
                 </div>
@@ -37,7 +39,7 @@
         </div>
     </div>
 </article>
-<% if (!index && (post.prev || post.next)){ %>
+<% if (!is_home() && (post.prev || post.next)){ %>
 <nav id="article-nav">
     <ul class="list-unstyled">
         <li>

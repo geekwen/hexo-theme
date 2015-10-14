@@ -3,7 +3,7 @@ var page = {
         //加载页面的效果
         setTimeout(function () {
             page.setPageState(true)
-        }, 500);
+        }, 400);
 
         page.resetSiteLinks();
     },
@@ -25,7 +25,7 @@ var page = {
                     page.setPageState(false);
                     setTimeout(function(){
                         location.assign(that.href)
-                    }, 500); // 等待动画结束 _variable.scss中的 $page-load-animation
+                    }, 400); // 等待动画结束 _variable.scss中的 $page-load-animation
                 };
             }
         }
