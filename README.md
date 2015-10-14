@@ -22,6 +22,7 @@ menu:
   首页: /
   标签: /tags
   归档: /archives
+  关于: /about
 ```
 
 ### 创建标签云页面：
@@ -35,8 +36,12 @@ type: "tag-cloud"
 ---
 ```
 
+3.并在主题的 ```_config.yml``` 中添加导航链接
+
 ### 创建关于页面
 ``` hexo new page about ```
+
+并在主题的 ```_config.yml``` 中添加导航链接
 
 ### 给文章添加主题图片
 添加一个 ```theme_image```， 后面接图片链接地址。如：   
@@ -51,6 +56,7 @@ theme_image: '/images/post-images/1.jpeg'
 
 ### 修改页面的副标题
 > 默认副标题是站点副标题
+
 给页面添加一个 ```page_subtitle```。如：   
 ```
 title: 关于
