@@ -1,9 +1,5 @@
 @charset "utf-8";
 
-[lang="en"]{
-  font-family: Helvetica, monospace;
-}
-
 .container {
   @include width-ctl;
 }

@@ -2,6 +2,7 @@
 // 代码高亮
 .post {
   .highlight {
+    max-height: 300px;
     margin-top: 20px;
     margin-bottom: 20px;
     padding: 10px 0 10px 20px;
@@ -44,6 +45,14 @@
     .comment {
       color: $highlight-comment;
     }
+  }
+
+  code {
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 4px;
+    background-color:$highlight-background;
+    color: $highlight-foreground;
   }
 
   // 行数
