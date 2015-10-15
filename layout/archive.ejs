@@ -5,29 +5,31 @@
             <p id="archive-total-num">共有 <%= page.posts.length %> 篇文章</p>
 
             <div id="archive-list-inner-box">
-                <% var last=0,year,yearArr=[]; %>
+                <% var last = 0, year, yearArr = []; %>
                 <% page.posts.each(function(post){ %>
-                    <% year = post.date.year(); %>
+                <% year = post.date.year(); %>
 
-                    <% /*new year*/ %>
-                    <% if (last != year){ %>
+                <% /*new year*/ %>
+                <% if (last != year){ %>
 
-                    <% if (yearArr.length != 0){ %>
-                        </ul></section>
-                    <% } %>
+                <% if (yearArr.length != 0){ %>
+                </ul></section>
+                <% } %>
 
-                    <% yearArr.push(year); %>
+                <% yearArr.push(year); %>
 
-                    <% last = year; %>
-                        </ul></section>
-                        <section id="year-<%= year %>" class="year">
-                            <h2><%= year %></h2>
-                            <ul class="list-unstyled">
-                                <li><a href="<%- url_for(post.path) %>"><time><%= date(post.date, 'M-D') %></time> <%= post.title %></a></li>
-                    <% }else{ %>
-                        <li><a href="<%- url_for(post.path) %>"><time><%= date(post.date, 'M-D') %></time> <%= post.title %></a></li>
-                    <% } %>
-                <% }) %>
+                <% last = year; %>
+                </ul></section>
+                <section data-link="year-<%= year %>" class="section-year">
+                    <h2><%= year %>年</h2>
+                    <ul class="list-unstyled">
+                        <li><a href="<%- url_for(post.path) %>">
+                                <time><%= date(post.date, 'M-D') %></time> <%= post.title %></a></li>
+                        <% }else{ %>
+                        <li><a href="<%- url_for(post.path) %>">
+                                <time><%= date(post.date, 'M-D') %></time> <%= post.title %></a></li>
+                        <% } %>
+                        <% }) %>
             </div>
 
             <p id="time-line-end">没有更多啦！</p>
@@ -35,11 +37,97 @@
             <nav id="archive-year-nav">
                 <ul class="list-unstyled">
                     <!-- todo 动态判断页面位置，计算当前浏览的年份 -->
-                    <% yearArr.forEach(function(item){ %>
-                        <li><a href="#year-<%= item %>" class="active"><%= item %></a></li>
+                    <% yearArr.forEach(function(item, index){ %>
+                    <li class="year-navs" data-link="year-<%= item %>"><%= item %></li>
                     <% }) %>
                 </ul>
             </nav>
         </div>
     </div>
 </main>
+
+<script type="text/javascript">
+<!-- todo still have problems -->
+    var nav = {
+        elements : {
+            scrollContainer: document.getElementById('outer-container'),
+            targets: document.getElementsByClassName('section-year'),
+            navContainer: document.getElementById('archive-year-nav'),
+            navLinks: document.getElementsByClassName('year-navs')
+        },
+        data: {
+            activeLink: [],
+            targetTop: [],
+            navContainerTop: document.getElementById('archive-year-nav').scrollTop
+        },
+        init: function(){
+
+            for (var i = 0; i < nav.elements.targets.length; i++) {
+                nav.data.targetTop.push(nav.getElementTop(nav.elements.targets[i]));
+            }
+
+            nav.setNavActive();
+            nav.setNavPosition();
+
+            nav.elements.scrollContainer.onscroll = function(){
+                nav.setNavActive();
+                nav.setNavPosition();
+            };
+        },
+        setNavActive: function(){
+            //统计每个年份的包裹容器离文档顶部的距离
+            if (nav.elements.scrollContainer.scrollTop < nav.data.targetTop[0]) {
+                nav.updateActiveEle(nav.elements.navLinks[0]);
+            } else if (nav.elements.scrollContainer.scrollHeight - nav.elements.scrollContainer.clientHeight - nav.elements.scrollContainer.scrollTop < 50) {
+                // 如果滚动到底部了，那么直接设置最后一个为 active 状态
+                nav.updateActiveEle(nav.elements.navLinks[nav.elements.navLinks.length - 1]);
+            } else {
+                // 查询哪个内容出现在视野中
+                for (i = 0; i < nav.data.targetTop.length; i++) {
+                    if (nav.data.targetTop[i] < nav.elements.scrollContainer.scrollTop &&
+                            (nav.data.targetTop[i] + nav.elements.targets[i].clientHeight) > nav.elements.scrollContainer.scrollTop) {
+                        nav.updateActiveEle(nav.elements.navLinks[i]);
+                    }
+                }
+            }
+        },
+        setNavPosition: function(){
+            // 设置导航容器的固定状态
+            if (nav.data.navContainerTop - nav.elements.scrollContainer.scrollTop < 100){
+                if (nav.elements.navContainer.className.search("fixed") === -1){
+                    nav.elements.navContainer.className += " fixed";
+                    nav.elements.navContainer.style.right = nav.elements.navContainer.parentElement.offsetLeft + 18 + "px";
+                }
+            } else {
+                nav.elements.navContainer.className = nav.elements.navContainer.className.replace(" fixed", "");
+                nav.elements.navContainer.style.right = "0";
+            }
+        },
+        updateActiveEle: function(newEle){
+            if (nav.data.activeLink[0] != newEle) {
+                var activePop = nav.data.activeLink.pop();
+                if (activePop) {
+                    activePop.className = nav.data.activePop.className.replace(" active", "");
+                }
+
+                nav.data.activeLink.push(newEle);
+                if (nav.data.activeLink[0].className.search("active") == -1) {
+                    nav.data.activeLink[0].className += " active";
+                }
+            }
+        },
+        getElementTop: function(element){
+            var toDocTop = element.offsetTop;
+            var parentEle = element.offsetParent;
+
+            while (parentEle !== null) {
+                toDocTop += parentEle.offsetTop;
+                parentEle = parentEle.offsetParent;
+            }
+
+            return toDocTop;
+        }
+    };
+
+    nav.init();
+</script>

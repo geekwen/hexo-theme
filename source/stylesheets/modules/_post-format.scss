@@ -11,6 +11,7 @@
       }
     }
   }
+
   ol,
   ul,
   p {
@@ -34,5 +35,12 @@
     a {
       text-decoration: underline;
     }
+  }
+
+  .center-img {
+    display: block;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
   }
 }

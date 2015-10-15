@@ -4,19 +4,19 @@
   position: relative;
 }
 
+#archive-total-num,
+#time-line-end {
+  position: relative;
+  font-size: .9em;
+  color: $gray-dark;
+}
+
 %style {
   content: "";
   display: block;
   width: $time-line-out-width;
   height: $time-line-width;
   background-color: $time-line-color;
-}
-
-#archive-total-num,
-#time-line-end {
-  position: relative;
-  font-size: .9em;
-  color: $gray-dark;
 }
 
 #archive-total-num::after {
@@ -110,14 +110,17 @@
     display: none;
   }
 
-  li {
-    margin-bottom: 5px;
+  &.fixed {
+    position: fixed;
+    top: 100px;
   }
 
-  a {
+  li {
+    margin-bottom: 5px;
     padding: 3px 0 3px 10px;
     border-left: 2px solid transparent;
     @include transition(all .2s);
+    cursor: pointer;
 
     &:hover,
     &.active {

@@ -11,11 +11,11 @@
         title = '#' + page.tag;
     }
     %>
+
     <meta http-equiv="x-ua-compatible" content="IE=edge"/>
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
     <title><% if (title){ %><%= title %> | <% } %><%= config.title %></title>
-    <%- css('stylesheets/style') %>
+    <%- css('stylesheets/style.min.css') %>
 </head>
 <body>
 <div id="outer-container">
@@ -28,7 +28,7 @@
             <% } %>
         </ul>
     </nav>
-    <!-- todo 更灵活的副标题管理方式 -->
+
     <% if (!is_post()){ %>
     <header id="masthead" class="container">
         <% if (title){ %>
@@ -44,6 +44,7 @@
         <% } %>
     </header>
     <% } %>
+    
     <%- body %>
     <footer id="mastfoot" lang="en">
         <p>Powered by <a href="http://www.hexo.io" target="_blank">hexo</a>, theme by <a href="/">Geekwen</a></p>
