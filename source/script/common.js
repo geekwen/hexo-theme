@@ -1,6 +1,6 @@
 var page = {
     init: function() {
-        //¼ÓÔØÒ³ÃæµÄĞ§¹û
+        //è¿›å…¥é¡µé¢çš„åŠ¨ç”»æ•ˆæœ
         setTimeout(function () {
             page.setPageState(true)
         }, 400);
@@ -9,8 +9,8 @@ var page = {
     },
     resetSiteLinks: function(){
         /**
-         * ÄÃµ½ËùÓĞµÄÁ´½Ó£¬È»ºóÅĞ¶ÏÊÇ·ñÊÇÕ¾ÄÚÁ´½Ó
-         * Èç¹ûÊÇÕ¾ÄÚÁ´½Ó£¬ÄÇÃ´Ìø×ªÖ®Ç°Ìí¼ÓÒ»¸ö¶¯»­Ğ§¹û
+         * æˆªå–é“¾æ¥çš„é»˜è®¤äº‹ä»¶
+         * è·³è½¬ä¹‹å‰åˆ¤æ–­æ˜¯å¦ä¸ºç«™å†…é“¾æ¥ï¼Œå¦‚æœæ˜¯ï¼Œé‚£ä¹ˆå…ˆå®ŒæˆåŠ¨ç”»ï¼Œå†è·³è½¬
          * */
         var allLinks = document.getElementsByTagName('a');
         for (var i = 0; i < allLinks.length; i++) {
@@ -25,16 +25,16 @@ var page = {
                     page.setPageState(false);
                     setTimeout(function(){
                         location.assign(that.href)
-                    }, 400); // µÈ´ı¶¯»­½áÊø _variable.scssÖĞµÄ $page-load-animation
+                    }, 400); // æ­¤å¤„çš„æ—¶é—´éœ€è¦åŒ _variable.scss ä¸­çš„ $page-load-animation ä¿æŒä¸€è‡´
                 };
             }
         }
     },
     setPageState: function(enter){
         /**
-         * ¸Ä±äÒ³Ãæ×´Ì¬
+         * é¡µé¢çŠ¶æ€
          *
-         * @param enter Îª²¼¶ûÖµ£¬ÊÇ·ñ½øÈëÒ³Ãæ
+         * @param enter å¸ƒå°”å€¼ï¼›true ä¸ºè¿›å…¥é¡µé¢ï¼› false ä¸ºç¦»å¼€é¡µé¢
          */
         var frames = [
             document.body,
