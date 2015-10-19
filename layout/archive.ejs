@@ -47,6 +47,10 @@
 
 <script type="text/javascript">
     (function () {
+        /**
+         * 年份导航
+         * */
+        var i;
         var nav = {
             elements: {
                 scrollContainer: document.getElementById('outer-container'),
@@ -69,10 +73,10 @@
                 nav.setNavPosition();
                 nav.navJump();
 
-                nav.elements.scrollContainer.onscroll = function () {
+                nav.elements.scrollContainer.addEventListener("scroll", function(){
                     nav.setNavActive();
                     nav.setNavPosition();
-                };
+                });
             },
             setNavActive: function () {
                 //统计每个年份的包裹容器离文档顶部的距离
@@ -99,7 +103,7 @@
                         nav.elements.navContainer.style.right = nav.elements.navContainer.parentElement.offsetLeft + 18 + "px";
                     }
                 } else {
-                    nav.elements.navContainer.className = nav.elements.navContainer.className.replace(" fixed", "");
+                    nav.elements.navContainer.className = nav.elements.navContainer.className.replace(/ ?fixed/, "");
                     nav.elements.navContainer.style.right = "0";
                 }
             },
@@ -107,7 +111,7 @@
                 if (nav.data.activeLink != newEle) {
                     var activePop = nav.data.activeLink;
                     if (activePop) {
-                        activePop.className = activePop.className.replace(" active", "");
+                        activePop.className = activePop.className.replace(/ ?active/, "");
                     }
 
                     nav.data.activeLink = newEle;
@@ -119,16 +123,24 @@
             navJump: function () {
                 for (var i = 0; i < nav.elements.navLinks.length; i++) {
                     nav.elements.navLinks[i].getElementTop = nav.data.targetTop[i];
-                    nav.elements.navLinks[i].onclick = function () {
-                        nav.elements.scrollContainer.scrollTop = this.getElementTop;
+
+                    nav.elements.navLinks[i].addEventListener("click", function(){
+                        var that = this;
+
+                        // 如果是往上滚动，需要给导航留出位置
+                        if (nav.elements.scrollContainer.scrollTop > that.getElementTop){
+                            nav.elements.scrollContainer.scrollTop = that.getElementTop - 50;
+                        } else {
+                            nav.elements.scrollContainer.scrollTop = that.getElementTop;
+                        }
 
                         for (i = 0; i < nav.elements.navLinks.length; i++){
                             if (nav.elements.navLinks[i].className.search("active") != -1){
-                                nav.elements.navLinks[i].className = nav.elements.navLinks[i].className.replace(" active", "");
+                                nav.elements.navLinks[i].className = nav.elements.navLinks[i].className.replace(/ ?active/, "");
                             }
                         }
 
-                        this.className += " active";
+                        that.className += " active";
 
                         /* todo smooth scroll
                          var that = this;
@@ -143,8 +155,7 @@
 
                          setTimeout(scroll, 20);
                          */
-                    }
-
+                    });
                 }
             }
         }

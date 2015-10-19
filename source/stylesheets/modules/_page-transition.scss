@@ -29,7 +29,8 @@ main {
 
 #site-menu {
   position: relative;
-  top: -100%;
+  top: -$navbar-height;
+  z-index: 99;
   @include transition($page-load-animation);
 
   &.load {
@@ -38,6 +39,8 @@ main {
 
   &.fixed {
     position: fixed;
+    opacity: 0.95;
+    box-shadow: 0 0 6px rgba(0,0,0,.3);
   }
 }
 
