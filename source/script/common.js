@@ -3,14 +3,6 @@
  * */
 
 var page = {
-    frames: [
-        document.body,
-        document.getElementById('site-menu'),
-        document.getElementById('loading'),
-        document.getElementById('masthead'),
-        document.getElementsByTagName('main')[0],
-        document.getElementById('mastfoot')
-    ],
     init: function () {
         //进入页面的动画效果
         setTimeout(function () {
@@ -29,7 +21,7 @@ var page = {
         for (var i = 0; i < allLinks.length; i++) {
             if (!allLinks[i].getAttribute("target") || allLinks[i].getAttribute("target") != "_blank") {
 
-                allLinks[i].addEventListener("click", function(e){
+                allLinks[i].addEventListener("click", function (e) {
                     var that = this;
                     if (e.preventDefault) {
                         e.preventDefault();
@@ -50,16 +42,13 @@ var page = {
          *
          * @param enter 布尔值；true 为进入页面； false 为离开页面
          */
+        var body = document.body;
 
-        page.frames.forEach(function (item) {
-            if (item) {
-                if (enter) {
-                    item.className += " load";
-                } else {
-                    item.className = item.className.replace(" load", "");
-                }
-            }
-        });
+        if (enter) {
+            body.className += " load";
+        } else {
+            body.className = body.className.replace(/ ?load/, "");
+        }
     },
     siteNav: function () {
         /**
@@ -70,7 +59,7 @@ var page = {
             siteNav = document.getElementById('site-menu'),
             lastPos = 0;
 
-        scrollContainer.addEventListener("scroll", function(){
+        scrollContainer.addEventListener("scroll", function () {
             if (this.scrollTop == 0) {
                 // 若回到顶端，则去除fixed，保持load
                 if (siteNav.className.search('fixed') !== -1) {
@@ -84,15 +73,16 @@ var page = {
                     if (siteNav.className.search('fixed') === -1) {
                         siteNav.className += " fixed";
                     }
+
+                    if (this.scrollTop - lastPos > 0) {
+                        // 往下滚动
+                        siteNav.className = siteNav.className.replace(/ ?load/, "");
+                    } else if (siteNav.className.search('load') === -1) {
+                        // 网上滚动
+                        siteNav.className += " load";
+                    }
                 }
 
-                if (this.scrollTop - lastPos > 0) {
-                    // 往下滚动
-                    siteNav.className = siteNav.className.replace(/ ?load/, "");
-                } else if (siteNav.className.search('load') === -1) {
-                    // 网上滚动
-                    siteNav.className += " load";
-                }
                 lastPos = this.scrollTop;
             }
         });

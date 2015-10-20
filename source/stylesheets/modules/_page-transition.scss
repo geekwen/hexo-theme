@@ -7,6 +7,25 @@ body {
   height: 100%;
 }
 
+// 加载动画
+body.load {
+  #masthead,
+  #mastfoot,
+  main{
+    opacity: 1;
+    top: 0;
+  }
+
+  #site-menu{
+    top: 0;
+  }
+
+  #loading {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
 #outer-container {
   height: 100%;
   overflow: auto;
@@ -20,11 +39,6 @@ main {
   top: 50px;
   background-color: #fff;
   @include transition($page-load-animation);
-
-  &.load {
-    opacity: 1;
-    top: 0;
-  }
 }
 
 #site-menu {
@@ -33,14 +47,16 @@ main {
   z-index: 99;
   @include transition($page-load-animation);
 
-  &.load {
-    top: 0;
-  }
-
+  // 位置样式需覆盖原本的页面过度动画样式
   &.fixed {
     position: fixed;
     opacity: 0.95;
+    top: -$navbar-height !important;
     box-shadow: 0 0 6px rgba(0,0,0,.3);
+  }
+
+  &.load {
+    top: 0 !important;
   }
 }
 
@@ -53,11 +69,6 @@ main {
   z-index: 999;
   background-color: $page-load-bg-color;
   @include transition($page-load-animation);
-
-  &.load {
-    opacity: 0;
-    visibility: hidden;
-  }
 }
 
 #loading-box {
