@@ -2,7 +2,6 @@
 <html lang="zh-CN">
 <head>
     <meta charset="utf-8">
-
     <%
     var title = page.title;
     if (is_archive()) {
@@ -11,9 +10,21 @@
         title = '#' + page.tag;
     }
     %>
-
     <meta http-equiv="x-ua-compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+
+    <% if(config.author){%>
+    <meta name="author" content="<%= config.author %>">
+    <%} %>
+
+    <% if(config.description){%>
+    <meta name="description" content="<%= config.description %>">
+    <%} %>
+
+    <% if(config.keywords){%>
+    <meta name="keywords" content="<%= config.keywords %>">
+    <%} %>
+
     <title><% if (title){ %><%= title %> | <% } %><%= config.title %></title>
     <%- css('stylesheets/style.min.css') %>
 </head>
@@ -53,7 +64,7 @@
         <% } %>
     </header>
     <% } %>
-    
+
     <%- body %>
 
     <footer id="mastfoot">

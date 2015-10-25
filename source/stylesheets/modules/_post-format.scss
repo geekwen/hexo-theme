@@ -1,5 +1,22 @@
 @charset "utf-8";
 .post .content {
+  h1,
+  h2 {
+    margin-top: 50px;
+    margin-bottom: 30px;
+
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-bottom: 5px;
+  }
+
   p {
     a {
       margin-left: 5px;

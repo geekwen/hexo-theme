@@ -41,11 +41,11 @@
     margin-right: auto;
 
     @media (min-width: $screen-sm) {
-      width: 80%;
+      max-width: 80%;
     }
 
     @media (min-width: $screen-md) {
-      width: 80%;
+      max-width: 60%;
     }
   }
 }
