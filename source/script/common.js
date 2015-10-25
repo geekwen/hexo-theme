@@ -60,7 +60,9 @@ var page = {
             lastPos = 0;
 
         scrollContainer.addEventListener("scroll", function () {
-            if (this.scrollTop == 0) {
+            var top = this.scrollTop;
+
+            if (top == 0) {
                 // 若回到顶端，则去除fixed，保持load
                 if (siteNav.className.search('fixed') !== -1) {
                     siteNav.className = siteNav.className.replace(/ ?fixed/, "");
@@ -69,12 +71,12 @@ var page = {
                     siteNav.className += " load";
                 }
             } else {
-                if (this.scrollTop > 100) {
+                if (top > 100) {
                     if (siteNav.className.search('fixed') === -1) {
                         siteNav.className += " fixed";
                     }
 
-                    if (this.scrollTop - lastPos > 0) {
+                    if (top - lastPos > 0) {
                         // 往下滚动
                         siteNav.className = siteNav.className.replace(/ ?load/, "");
                     } else if (siteNav.className.search('load') === -1) {
@@ -83,7 +85,7 @@ var page = {
                     }
                 }
 
-                lastPos = this.scrollTop;
+                lastPos = top;
             }
         });
     }

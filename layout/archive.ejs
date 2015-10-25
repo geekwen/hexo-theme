@@ -79,17 +79,19 @@
                 });
             },
             setNavActive: function () {
+                var top = nav.elements.scrollContainer.scrollTop;
+
                 //统计每个年份的包裹容器离文档顶部的距离
-                if (nav.elements.scrollContainer.scrollTop < nav.data.targetTop[0]) {
+                if (top < nav.data.targetTop[0]) {
                     nav.updateActiveEle(nav.elements.navLinks[0]);
-                } else if (nav.elements.scrollContainer.scrollHeight - nav.elements.scrollContainer.clientHeight - nav.elements.scrollContainer.scrollTop < 20) {
+                } else if (nav.elements.scrollContainer.scrollHeight - nav.elements.scrollContainer.clientHeight - top < 20) {
                     // 如果滚动到底部了，那么直接设置最后一个为 active 状态
                     nav.updateActiveEle(nav.elements.navLinks[nav.elements.navLinks.length - 1]);
                 } else {
                     // 查询哪个内容出现在视野中
                     for (i = 0; i < nav.data.targetTop.length; i++) {
-                        if (nav.data.targetTop[i] < nav.elements.scrollContainer.scrollTop &&
-                                (nav.data.targetTop[i] + nav.elements.targets[i].clientHeight) > nav.elements.scrollContainer.scrollTop) {
+                        if (nav.data.targetTop[i] < top &&
+                                (nav.data.targetTop[i] + nav.elements.targets[i].clientHeight) > top) {
                             nav.updateActiveEle(nav.elements.navLinks[i]);
                         }
                     }
