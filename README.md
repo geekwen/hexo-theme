@@ -16,14 +16,20 @@
 
 ### 关闭归档页面的分页功能
 
-> 因为归档页面的设计是不需要分页的
+> 因为归档页面的设计是不需要分页的，也不需要年、月视图
 
 需要在站点的 `_config.yml` 中添加：
 
 ```
 archive_generator:
+  yearly: 0
+  monthly: 0
   per_page: 0
 ```
+
+### 添加站点图标
+
+直接把图标放到 ```hexo/source/``` 下即可（不是主题下面的souce）。文件必须是 ```.ico``` 格式。文件名必须是 ```favicon.ico```
 
 ### 配置导航链接
 
@@ -57,18 +63,6 @@ type: "tag-cloud"
 
 并在主题的 ```_config.yml``` 中添加导航链接
 
-### 给文章添加主题图片
-
-添加一个 ```theme_image```， 后面接图片链接地址。如：   
-```
-title: test
-date: 2015-10-10
-tags:
-- test
-theme_image: '/images/post-images/1.jpeg'
----
-```
-
 ### 修改页面的副标题
 
 > 默认副标题是站点副标题
@@ -79,5 +73,17 @@ theme_image: '/images/post-images/1.jpeg'
 title: 关于
 date: 2015-10-14 15:33:51
 page_subtitle: "这是关于我的页面"
+---
+```
+
+### 给文章添加主题图片
+
+添加一个 ```theme_image```， 后面接图片链接地址。如：   
+```
+title: test
+date: 2015-10-10
+tags:
+- test
+theme_image: '/images/post-images/1.jpeg'
 ---
 ```
