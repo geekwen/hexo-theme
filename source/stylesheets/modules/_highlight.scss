@@ -16,35 +16,35 @@
       margin-bottom: 10px;
     }
 
-    //.attribute {
-    //  color: $highlight-foreground;
-    //}
-    //
-    //.tag,
-    //.keyword {
-    //  color: $highlight-function;
-    //}
-    //
-    //.title {
-    //  color: $highlight-title;
-    //}
-    //
-    //.value,
-    //.string {
-    //  color: $highlight-string;
-    //}
-    //
-    //.params {
-    //  color: $highlight-params;
-    //}
-    //
-    //.built_in {
-    //  color: $highlight-built-in;
-    //}
-    //
-    //.comment {
-    //  color: $highlight-comment;
-    //}
+    .attribute {
+     color: $highlight-foreground;
+    }
+
+    .tag,
+    .keyword {
+     color: $highlight-function;
+    }
+
+    .title {
+     color: $highlight-title;
+    }
+
+    .value,
+    .string {
+     color: $highlight-string;
+    }
+
+    .params {
+     color: $highlight-params;
+    }
+
+    .built_in {
+     color: $highlight-built-in;
+    }
+
+    .comment {
+     color: $highlight-comment;
+    }
   }
 
   code {
