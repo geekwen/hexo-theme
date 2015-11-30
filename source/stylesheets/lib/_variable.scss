@@ -4,6 +4,7 @@
 // ================
 
 $yellow: #f5f208;
+$blue: #09f;
 
 $gray-lighter: #f9f9f9;
 $gray-light: #eef2f8;
@@ -41,10 +42,13 @@ $time-line-width: 2px;
 $time-line-out-width: $time-line-width * 12;
 
 // code highlights
-$highlight-background: #2d2d2d;
+$highlight-background: rgb(242, 243, 241);//#1E2A2F;
+$highlight-background-inline: #D6DBDF;
+$highlight-foreground: #333;//#cccccc;
+$highlight-foreground-inline: #524D4D;
+
 $highlight-current-line: #393939;
 $highlight-selection: #515151;
-$highlight-foreground: #cccccc;
 $highlight-comment: #999;
 $highlight-function: #ffcc66;
 $highlight-title: #f99157;
