@@ -77,7 +77,6 @@
   }
 
   li {
-    margin-bottom: 10px;
     color: #999;
 
     &::before {
@@ -87,6 +86,11 @@
     }
 
     a {
+      display: block;
+      padding-top: 5px;
+      padding-bottom: 5px;
+      border-bottom: 1px dashed #eee;
+
       @include transition(all .2s);
 
       &:hover {
@@ -96,6 +100,8 @@
     }
 
     time {
+      display: inline-block;
+      margin-right: 5px;
       font-size: 0.8em;
     }
   }

@@ -5,7 +5,7 @@
             <div id="tag-post-list-body">
                 <ul class="list-unstyled">
                     <% page.posts.each(function(post){ %>
-                    <li><a href="<%- url_for(post.path) %>"><time><%= date(post.date, 'YYYY-M-D') %></time> <%= post.title %></a></li>
+                    <li><a href="<%- url_for(post.path) %>"><time><%= date(post.date, 'YYYY-MM-DD') %></time> <%= post.title %></a></li>
                     <% }) %>
                 </ul>
             </div>

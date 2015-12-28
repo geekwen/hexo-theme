@@ -24,10 +24,10 @@
                     <h2><%= year %>年</h2>
                     <ul class="list-unstyled">
                         <li><a href="<%- url_for(post.path) %>">
-                                <time><%= date(post.date, 'M-D') %></time> <%= post.title %></a></li>
+                                <time><%= date(post.date, 'MM-DD') %></time> <%= post.title %></a></li>
                         <% }else{ %>
                         <li><a href="<%- url_for(post.path) %>">
-                                <time><%= date(post.date, 'M-D') %></time> <%= post.title %></a></li>
+                                <time><%= date(post.date, 'MM-DD') %></time> <%= post.title %></a></li>
                         <% } %>
                         <% }) %>
             </div>

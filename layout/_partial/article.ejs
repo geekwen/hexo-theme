@@ -8,7 +8,7 @@
             <% } %>
 
             <ul class="post-meta list-inline">
-                <li>发表于 <%= date(post.date, 'YYYY-M-D') %></li>
+                <li>发表于 <%= date(post.date, 'YYYY-MM-DD') %></li>
                 <% if (post.tags && post.tags.length){ %>
                 <li>
                     <%- list_tags(post.tags, {
