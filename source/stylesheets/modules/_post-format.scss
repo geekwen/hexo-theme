@@ -17,15 +17,13 @@
     margin-bottom: 5px;
   }
 
-  p {
-    a {
-      margin-left: 5px;
-      margin-right: 5px;
-      color: $link-color-default;
+  a {
+    margin-left: 5px;
+    margin-right: 5px;
+    color: $link-color-default;
 
-      &#more {
-        display: none;
-      }
+    &#more {
+      display: none;
     }
   }
 
