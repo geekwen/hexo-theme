@@ -25,7 +25,7 @@ archive_generator:
 
 ### 添加站点图标
 
-直接把图标放到 ```hexo/source/``` 下即可（不是主题下面的souce）。文件必须是 ```.ico``` 格式。文件名必须是 ```favicon.ico```
+直接把图标放到 ```hexo/source/``` 下即可（不是主题下面的souce）。文件名必须是 ```favicon.ico```
 
 ### 配置导航链接
 
@@ -82,4 +82,26 @@ tags:
 - test
 theme_image: '/images/post-images/1.jpeg'
 ---
+```
+
+### 给站点添加订阅功能
+
+首先安装插件：
+
+```npm install hexo-generator-feed --save```
+
+然后在根目录下的```_config.yml```中添加如下代码：
+
+```
+# Extensions
+## Plugins: http://hexo.io/plugins/
+#RSS订阅
+plugin:
+  hexo-generator-feed
+
+#Feed Atom
+feed:
+  type: atom
+  path: atom.xml
+  limit: 20
 ```
