@@ -52,6 +52,73 @@ main {
   }
 }
 
+#back-to-top {
+  @include position(fixed, null 10px 50px null);
+  z-index: 10;
+  background-color: transparent;
+  border: none;
+
+  @media (min-width: 768px) {
+    right: 30px;
+  }
+
+  &:focus {
+    outline: none;
+  }
+
+  &:hover span {
+    opacity: 1;
+    @include animation(x-spin 1s linear infinite);
+
+    &::before,
+    &::after {
+      background-color: $theme-color;
+    }
+
+    &::before {
+      box-shadow: 8px 9px 0 $theme-color;
+    }
+
+    &::after {
+      box-shadow: -8px 9px 0 $theme-color;
+    }
+  }
+
+  span {
+    display: block;
+    opacity: 0.5;
+    padding: 5px 20px 10px;
+
+    &::before,
+    &::after {
+      content: '';
+      display: inline-block;
+      width: 1px;
+      height: 12px;
+      background-color: #ccc;
+      @include transition(all .4s);
+    }
+
+    &::before {
+      @include transform-origin(right top);
+      @include transform(rotate(40deg));
+      box-shadow: 8px 9px 0 #ccc;
+    }
+
+    &::after {
+      @include transform-origin(left top);
+      @include transform(rotate(-40deg));
+      box-shadow: -8px 9px 0 #ccc;
+    }
+  }
+}
+
+@include keyframes(x-spin) {
+  50% {
+    @include transform(rotateY(180deg));
+  }
+}
+
 @import "modules/nav";
 @import "modules/pagination";
 @import "modules/article";

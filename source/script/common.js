@@ -11,6 +11,7 @@ var page = {
 
         page.resetSiteLinks();
         page.siteNav();
+        page.setEvents();
     },
     resetSiteLinks: function () {
         /**
@@ -50,6 +51,11 @@ var page = {
             body.className = body.className.replace(/ ?load/, "");
         }
     },
+    setEvents: function () {
+        var backToTop = document.getElementById('back-to-top');
+
+        backToTop.addEventListener('click', page.scrollTo);
+    },
     siteNav: function () {
         /**
          * 向下滚动 —— 隐藏导航栏
@@ -57,6 +63,7 @@ var page = {
          * */
         var scrollContainer = document.getElementById('outer-container'),
             siteNav = document.getElementById('site-menu'),
+            backToTop = document.getElementById('back-to-top'),
             lastPos = 0;
 
         scrollContainer.addEventListener("scroll", function () {
@@ -70,10 +77,17 @@ var page = {
                 if (siteNav.className.search('load') === -1) {
                     siteNav.className += " load";
                 }
+                if (backToTop.className.search('hide') === -1) {
+                    backToTop.className += ' hide';
+                }
             } else {
                 if (top > 100) {
                     if (siteNav.className.search('fixed') === -1) {
                         siteNav.className += " fixed";
+                    }
+
+                    if (backToTop.className.search('hide') !== -1) {
+                        backToTop.className = backToTop.className.replace(/ ?hide/, '');
                     }
 
                     if (top - lastPos > 0) {
@@ -88,6 +102,39 @@ var page = {
                 lastPos = top;
             }
         });
+    },
+    scrollTo: function (targetPos) {
+        targetPos = Number(targetPos) || 0;
+        var container = document.getElementById('outer-container'),
+            requestAnimationFrame = window.requestAnimationFrame || window.mozRequestAnimationFrame ||
+                window.webkitRequestAnimationFrame || window.msRequestAnimationFrame,
+            cancelAnimationFrame = window.cancelAnimationFrame || window.mozCancelAnimationFrame,
+            animation,
+            currentPos = container.scrollTop,
+            speed = Math.abs(currentPos - targetPos) / 15,
+            isUp = currentPos - targetPos > 0;
+
+        animation = requestAnimationFrame(scroll);
+
+        function scroll() {
+            currentPos = container.scrollTop;
+            if (isUp) {
+                if (currentPos <= targetPos) {
+                    cancelAnimationFrame(animation);
+                    return;
+                }
+                container.scrollTop = currentPos - speed;
+            }
+            else {
+                if (currentPos >= targetPos) {
+                    cancelAnimationFrame(animation);
+                    return;
+                }
+                container.scrollTop = currentPos + speed;
+            }
+
+            animation = requestAnimationFrame(scroll);
+        }
     }
 };
 
