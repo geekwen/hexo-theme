@@ -51,18 +51,20 @@
         var nav = {
             elements: {
                 scrollContainer: document.getElementById('outer-container'),
-                targets: document.getElementsByClassName('section-year'),
+                section: document.getElementsByClassName('section-year'),
                 navContainer: document.getElementById('archive-year-nav'),
                 navLinks: document.getElementsByClassName('year-navs')
             },
             data: {
                 activeLink: null, // 保存当前激活年份的元素
-                targetTop: [], // 保存每个年分到顶部的距离
+                sectionTop: [], // 保存每个年分到顶部的距离
                 navContainerTop: getElementTop(document.getElementById('archive-year-nav'))
             },
             init: function () {
-                for (var i = 0; i < nav.elements.targets.length; i++) {
-                    nav.data.targetTop.push(getElementTop(nav.elements.targets[i]) - 50); // 在顶部预留50px的空间
+                //统计每个年份的包裹容器离文档顶部的距离
+                var sectionLength = nav.elements.section.length;
+                for (var i = 0; i < sectionLength; i++) {
+                    nav.data.sectionTop.push(getElementTop(nav.elements.section[i]) - 80); // 在顶部预留50px的空间
                 }
 
                 nav.setNavActive();
@@ -75,20 +77,15 @@
                 });
             },
             setNavActive: function () {
-                var top = nav.elements.scrollContainer.scrollTop;
+                var top = nav.elements.scrollContainer.scrollTop,
+                        sectionTopLength = nav.data.sectionTop.length;
 
-                //统计每个年份的包裹容器离文档顶部的距离
-                if (top < nav.data.targetTop[0]) {
+                if (top < nav.data.sectionTop[0]) {
                     nav.updateActiveEle(nav.elements.navLinks[0]);
                 }
-                // 如果滚动到底部了，那么直接设置最后一个为 active 状态
-                else if (nav.elements.scrollContainer.scrollHeight - nav.elements.scrollContainer.clientHeight - top < 20) {
-                    nav.updateActiveEle(nav.elements.navLinks[nav.elements.navLinks.length - 1]);
-                }
-                // 查询哪个内容出现在视野中
                 else {
-                    for (var i = 0; i < nav.data.targetTop.length; i++) {
-                        if (nav.data.targetTop[i] < top && (nav.data.targetTop[i] + nav.elements.targets[i].clientHeight) > top) {
+                    for (var i = sectionTopLength; i >= 0; i--) {
+                        if (nav.data.sectionTop[i] <= top && (nav.data.sectionTop[i] + nav.elements.section[i].clientHeight) > top) {
                             nav.updateActiveEle(nav.elements.navLinks[i]);
                         }
                     }
@@ -99,59 +96,31 @@
                 if (nav.data.navContainerTop - nav.elements.scrollContainer.scrollTop < 150) {
                     if (nav.elements.navContainer.className.search("fixed") === -1) {
                         nav.elements.navContainer.className += " fixed";
-                        nav.elements.navContainer.style.right = nav.elements.navContainer.parentElement.offsetLeft + 18 + "px";
+                        nav.elements.navContainer.style.right = nav.elements.navContainer.parentElement.offsetLeft + 14 + "px";
                     }
-                } else {
+                }
+                else {
                     nav.elements.navContainer.className = nav.elements.navContainer.className.replace(/ ?fixed/, "");
                     nav.elements.navContainer.style.right = "0";
                 }
             },
             updateActiveEle: function (newEle) {
-                var activePop = nav.data.activeLink;
-                if (activePop) {
-                    activePop.className = activePop.className.replace(/ ?active/, "");
-                }
-
-                nav.data.activeLink = newEle;
-                if (nav.data.activeLink.className.search("active") == -1) {
-                    nav.data.activeLink.className += " active";
+                if (newEle.className.search("active") == -1) {
+                    var activePop = nav.data.activeLink;
+                    if (activePop) {
+                        activePop.className = activePop.className.replace(/ ?active/, "");
+                    }
+                    nav.data.activeLink = newEle;
+                    newEle.className += " active";
                 }
             },
             navJump: function () {
-                for (var i = 0; i < nav.elements.navLinks.length; i++) {
-                    nav.elements.navLinks[i].getElementTop = nav.data.targetTop[i];
-
+                var navLinkLength = nav.elements.navLinks.length;
+                for (var i = 0; i < navLinkLength; i++) {
+                    nav.elements.navLinks[i].getElementTop = nav.data.sectionTop[i];
                     nav.elements.navLinks[i].addEventListener("click", function () {
-                        var that = this;
-
-                        // 如果是往上滚动，需要给导航留出位置
-                        if (nav.elements.scrollContainer.scrollTop > that.getElementTop) {
-                            nav.elements.scrollContainer.scrollTop = that.getElementTop - 50;
-                        } else {
-                            nav.elements.scrollContainer.scrollTop = that.getElementTop;
-                        }
-
-                        for (var j = 0; j < nav.elements.navLinks.length; j++) {
-                            if (nav.elements.navLinks[j].className.search("active") != -1) {
-                                nav.elements.navLinks[j].className = nav.elements.navLinks[j].className.replace(/ ?active/, "");
-                            }
-                        }
-
-                        that.className += " active";
-
-                        /* todo smooth scroll
-                         var that = this;
-                         function scroll(){
-
-                         if (nav.elements.scrollContainer.scrollTop < that.getElementTop) {
-                         console.log("scrolling");
-                         nav.elements.scrollContainer.scrollTop += that.getElementTop/20;
-                         setTimeout(scroll, 20);
-                         }
-                         }
-
-                         setTimeout(scroll, 20);
-                         */
+                        page.scrollTo(this.getElementTop);
+                        nav.updateActiveEle(this);
                     });
                 }
             }

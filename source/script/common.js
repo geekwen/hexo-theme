@@ -119,14 +119,14 @@ var page = {
         function scroll() {
             currentPos = container.scrollTop;
             if (isUp) {
-                if (currentPos <= targetPos) {
+                if (currentPos <= targetPos || currentPos == 0) {
                     cancelAnimationFrame(animation);
                     return;
                 }
                 container.scrollTop = currentPos - speed;
             }
             else {
-                if (currentPos >= targetPos) {
+                if (currentPos >= targetPos || currentPos == container.scrollHeight - container.clientHeight) {
                     cancelAnimationFrame(animation);
                     return;
                 }
