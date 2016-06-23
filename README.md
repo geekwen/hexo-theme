@@ -2,8 +2,6 @@
 
 一个简单的hexo主题
 
-正在持续开发、测试中
-
 ## DEMO
 
 [geekwen.com](http://geekwen.com)
@@ -105,3 +103,15 @@ feed:
   path: atom.xml
   limit: 20
 ```
+
+### 评论模块
+
+**注意！默认使用的disqus，而且是用的本人站点的相关配置。请务必对此处代码进行修改！**
+
+在`article.ejs`中，对第58行`<div id="disqus_thread" class="container" style="margin-bottom: 50px;"></div>`到77行`<noscript>`中间的代码进行修改。如果不需要评论模块，则可以删除此处的代码。
+
+## 最后
+
+随意使用，但是希望能够保留页脚中hexo和开发者的注明（Powered by hexo, theme by Geekwen. ），并保留相关链接。
+
+祝生活愉快！
