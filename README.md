@@ -2,6 +2,14 @@
 
 一个简单的hexo主题
 
+## Screenshots
+
+![1](https://raw.githubusercontent.com/geekwen/hexo-theme-Quiet/master/screenshot/1.png)
+
+![2](https://raw.githubusercontent.com/geekwen/hexo-theme-Quiet/master/screenshot/2.png)
+
+![3](https://raw.githubusercontent.com/geekwen/hexo-theme-Quiet/master/screenshot/3.png)
+
 ## DEMO
 
 [geekwen.com](http://geekwen.com)
