@@ -112,6 +112,8 @@ feed:
 
 ## 最后
 
-随意使用，但是希望能够保留页脚中hexo和开发者的注明（Powered by hexo, theme by Geekwen. ），并保留相关链接。
+licence: [WTFPL](https://github.com/anak10thn/WTFPL)
+
+希望能够保留页脚中hexo和开发者的注明（Powered by hexo, theme by Geekwen. ），并保留相关链接。
 
 祝生活愉快！
