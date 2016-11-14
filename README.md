@@ -4,11 +4,11 @@
 
 ## Screenshots
 
-![1](https://raw.githubusercontent.com/geekwen/hexo-theme-Quiet/master/screenshot/1.png)
+![1](https://raw.githubusercontent.com/geekwen/hexo-theme-Quiet/master/screenshot/v1/1.png)
 
-![2](https://raw.githubusercontent.com/geekwen/hexo-theme-Quiet/master/screenshot/2.png)
+![2](https://raw.githubusercontent.com/geekwen/hexo-theme-Quiet/master/screenshot/v1/2.png)
 
-![3](https://raw.githubusercontent.com/geekwen/hexo-theme-Quiet/master/screenshot/3.png)
+![3](https://raw.githubusercontent.com/geekwen/hexo-theme-Quiet/master/screenshot/v1/3.png)
 
 ## DEMO
 
@@ -115,6 +115,6 @@ feed:
 
 licence: [WTFPL](https://github.com/anak10thn/WTFPL)
 
-希望能够保留页脚中hexo和开发者的注明（Powered by hexo, theme by Geekwen. ），并保留相关链接。
+希望能够保留页脚中hexo和开发者的注明（Powered by [hexo](http://hexo.io), [theme](https://github.com/geekwen/hexo-theme-Quiet) by [Geekwen](http://geekwen.com). ），并保留相关链接。
 
 祝生活愉快！
