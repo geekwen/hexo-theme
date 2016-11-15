@@ -1,143 +1,25 @@
-<main>
-    <div class="content-wrap">
 
-        <div id="archive-list" class="container">
-            <p id="archive-total-num">共有 <%= page.posts.length %> 篇文章</p>
+<div id="page-article-list" data-content="共 <%= page.posts.length %> 篇文章">
+    <% var last = 0, year; %>
+    <% page.posts.each(function(post){ %>
 
-            <div id="archive-list-inner-box">
-                <% var last = 0, year, yearArr = []; %>
-                <% page.posts.each(function(post){ %>
-                <% year = post.date.year(); %>
+    <% year = post.date.year(); %>
+    <% /*new year*/ %>
+    <% if (last != year){ %>
+        </section>
+        <% last = year; %>
+        <section id="year-<%= year %>">
+        <h2><%= year %></h2>
+        <article>
+            <h3><a href="<%- url_for(post.path) %>"><%= post.title %></a></h3>
+            <time><%= date(post.date, 'MM-DD') %></time>
+        </article>
+    <% }else{ %>
+        <article>
+            <h3><a href="<%- url_for(post.path) %>"><%= post.title %></a></h3>
+            <time><%= date(post.date, 'MM-DD') %></time>
+        </article>
+    <% } %>
 
-                <% /*new year*/ %>
-                <% if (last != year){ %>
-
-                <% if (yearArr.length != 0){ %>
-                </ul></section>
-                <% } %>
-
-                <% yearArr.push(year); %>
-
-                <% last = year; %>
-                </ul></section>
-                <section data-link="year-<%= year %>" class="section-year">
-                    <h2><%= year %>年</h2>
-                    <ul class="list-unstyled">
-                        <li><a href="<%- url_for(post.path) %>">
-                                <time><%= date(post.date, 'MM-DD') %></time> <%= post.title %></a></li>
-                        <% }else{ %>
-                        <li><a href="<%- url_for(post.path) %>">
-                                <time><%= date(post.date, 'MM-DD') %></time> <%= post.title %></a></li>
-                        <% } %>
-                        <% }) %>
-            </div>
-
-            <p id="time-line-end">没有更多啦！</p>
-
-            <nav id="archive-year-nav">
-                <ul class="list-unstyled">
-                    <% yearArr.forEach(function(item){ %>
-                    <li class="year-navs" data-link="year-<%= item %>"><%= item %></li>
-                    <% }) %>
-                </ul>
-            </nav>
-        </div>
-    </div>
-</main>
-
-<script type="text/javascript">
-    (function () {
-        /** 年份导航 */
-        var nav = {
-            elements: {
-                scrollContainer: document.getElementById('outer-container'),
-                section: document.getElementsByClassName('section-year'),
-                navContainer: document.getElementById('archive-year-nav'),
-                navLinks: document.getElementsByClassName('year-navs')
-            },
-            data: {
-                activeLink: null, // 保存当前激活年份的元素
-                sectionTop: [], // 保存每个年分到顶部的距离
-                navContainerTop: getElementTop(document.getElementById('archive-year-nav'))
-            },
-            init: function () {
-                //统计每个年份的包裹容器离文档顶部的距离
-                var sectionLength = nav.elements.section.length;
-                for (var i = 0; i < sectionLength; i++) {
-                    nav.data.sectionTop.push(getElementTop(nav.elements.section[i]) - 80); // 在顶部预留50px的空间
-                }
-
-                nav.setNavActive();
-                nav.setNavPosition();
-                nav.navJump();
-
-                nav.elements.scrollContainer.addEventListener("scroll", function () {
-                    nav.setNavActive();
-                    nav.setNavPosition();
-                });
-            },
-            setNavActive: function () {
-                var top = nav.elements.scrollContainer.scrollTop,
-                        sectionTopLength = nav.data.sectionTop.length;
-
-                if (top < nav.data.sectionTop[0]) {
-                    nav.updateActiveEle(nav.elements.navLinks[0]);
-                }
-                else {
-                    for (var i = sectionTopLength; i >= 0; i--) {
-                        if (nav.data.sectionTop[i] <= top && (nav.data.sectionTop[i] + nav.elements.section[i].clientHeight) > top) {
-                            nav.updateActiveEle(nav.elements.navLinks[i]);
-                        }
-                    }
-                }
-            },
-            setNavPosition: function () {
-                // 设置导航容器的固定状态
-                if (nav.data.navContainerTop - nav.elements.scrollContainer.scrollTop < 150) {
-                    if (nav.elements.navContainer.className.search("fixed") === -1) {
-                        nav.elements.navContainer.className += " fixed";
-                        nav.elements.navContainer.style.right = nav.elements.navContainer.parentElement.offsetLeft + 14 + "px";
-                    }
-                }
-                else {
-                    nav.elements.navContainer.className = nav.elements.navContainer.className.replace(/ ?fixed/, "");
-                    nav.elements.navContainer.style.right = "0";
-                }
-            },
-            updateActiveEle: function (newEle) {
-                if (newEle.className.search("active") == -1) {
-                    var activePop = nav.data.activeLink;
-                    if (activePop) {
-                        activePop.className = activePop.className.replace(/ ?active/, "");
-                    }
-                    nav.data.activeLink = newEle;
-                    newEle.className += " active";
-                }
-            },
-            navJump: function () {
-                var navLinkLength = nav.elements.navLinks.length;
-                for (var i = 0; i < navLinkLength; i++) {
-                    nav.elements.navLinks[i].getElementTop = nav.data.sectionTop[i];
-                    nav.elements.navLinks[i].addEventListener("click", function () {
-                        page.scrollTo(this.getElementTop);
-                        nav.updateActiveEle(this);
-                    });
-                }
-            }
-        }
-
-        nav.init();
-
-        function getElementTop(element) {
-            var toDocTop = element.offsetTop;
-            var parentEle = element.offsetParent;
-
-            while (parentEle !== null) {
-                toDocTop += parentEle.offsetTop;
-                parentEle = parentEle.offsetParent;
-            }
-
-            return toDocTop;
-        }
-    }())
-</script>
+    <% }); %>
+</div>

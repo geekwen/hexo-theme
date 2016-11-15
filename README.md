@@ -1,20 +1,63 @@
-## hexo-theme-Quiet
+## Hexo theme ON THE WAY
 
 一个简单的hexo主题
 
 ## Screenshots
 
-![1](https://raw.githubusercontent.com/geekwen/hexo-theme-Quiet/master/screenshot/v1/1.png)
+![1](https://raw.githubusercontent.com/geekwen/hexo-theme/master/screenshot/v2/1.jpg)
 
-![2](https://raw.githubusercontent.com/geekwen/hexo-theme-Quiet/master/screenshot/v1/2.png)
+![2](https://raw.githubusercontent.com/geekwen/hexo-theme/master/screenshot/v2/2.jpg)
 
-![3](https://raw.githubusercontent.com/geekwen/hexo-theme-Quiet/master/screenshot/v1/3.png)
+![3](https://raw.githubusercontent.com/geekwen/hexo-theme/master/screenshot/v2/3.jpg)
 
 ## DEMO
 
 [geekwen.com](http://geekwen.com)
 
 ## 快速入门
+
+### theme/_config.yml 设置说明
+
+```
+# 导航栏设置
+menu:
+  首页: /
+  文章: /archives
+  标签: /tags
+  关于: /about
+
+# 博客建设时间：显示在页脚
+blog_since: 2015
+
+# 网站链接：显示在首页左上角
+site_url: geekwen.com
+
+# 网站logo链接：显示在首页左上角
+logo_url: /images/logo.png
+
+# 首页正文内容：分别对应第一行和第二行
+index_content:
+  1: 岁 月 静 好
+  2: 安 然 前 行
+
+# 非首页页面侧边栏内容
+# image_number 是侧边栏背景图片数量。侧边栏背景图片在source/images/sidebar-bg下，命名必须为"数字.jpg"
+sidebar_content:
+  1: GEEKWEN
+  2: .com
+  image_number: 16
+```
+
+### 侧边栏背景图片自定义
+
+给文章／页面添加一个 ```sidebar_bg```。如：   
+
+```
+title: 关于
+date: 2015-10-14 15:33:51
+sidebar_bg: /images/sidebar-bg/0.jpg 
+---
+```
 
 ### 关闭归档页面的分页功能
 
@@ -32,18 +75,6 @@ archive_generator:
 ### 添加站点图标
 
 直接把图标放到 ```hexo/source/``` 下即可（不是主题下面的souce）。文件名必须是 ```favicon.ico```
-
-### 配置导航链接
-
-在主题的 `_config.yml` 中配置导航链接：
-
-```
-menu:
-  首页: /
-  标签: /tags
-  归档: /archives
-  关于: /about
-```
 
 ### 创建标签云页面：
 
@@ -65,6 +96,18 @@ type: "tag-cloud"
 
 并在主题的 ```_config.yml``` 中添加导航链接
 
+### 配置导航链接
+
+在主题的 `_config.yml` 中配置导航链接：
+
+```
+menu:
+  首页: /
+  文章: /archives
+  标签: /tags
+  关于: /about
+```
+
 ### 修改页面的副标题
 
 > 默认副标题是站点副标题
@@ -75,18 +118,6 @@ type: "tag-cloud"
 title: 关于
 date: 2015-10-14 15:33:51
 page_subtitle: "这是关于我的页面"
----
-```
-
-### 给文章添加主题图片
-
-添加一个 ```theme_image```， 后面接图片链接地址。如：
-```
-title: test
-date: 2015-10-10
-tags:
-- test
-theme_image: '/images/post-images/1.jpeg'
 ---
 ```
 
@@ -115,6 +146,6 @@ feed:
 
 licence: [WTFPL](https://github.com/anak10thn/WTFPL)
 
-希望能够保留页脚中hexo和开发者的注明（Powered by [hexo](http://hexo.io), [theme](https://github.com/geekwen/hexo-theme-Quiet) by [Geekwen](http://geekwen.com). ），并保留相关链接。
+希望能够保留页脚中hexo和开发者的注明（Powered by [hexo](http://hexo.io), [theme](https://github.com/geekwen/hexo-theme) by [Geekwen](http://geekwen.com). ），并保留相关链接。
 
 祝生活愉快！

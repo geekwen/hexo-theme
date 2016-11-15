@@ -1,0 +1,39 @@
+#tag-cloud-list {
+  a {
+    display: inline-block;
+    position: relative;
+    margin: 10px;
+    border-bottom: 2px solid transparent;
+    font-size: 0.8em;
+    color: $gray;
+    line-height: 30px;
+
+    &,
+    &::after {
+      -webkit-transition: all .2s;
+      -moz-transition: all .2s;
+      -ms-transition: all .2s;
+      -o-transition: all .2s;
+      transition: all .2s;
+    }
+
+    &::after {
+      content: "";
+      height: 1px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background-color: $gray;
+    }
+
+    &:hover {
+      color: $link-color-default;
+      text-decoration: none;
+
+      &::after {
+        background-color: $link-color-default;
+      }
+    }
+  }
+}

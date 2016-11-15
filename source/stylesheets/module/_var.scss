@@ -1,0 +1,45 @@
+$yellow: #f5f208;
+$blue: #09f;
+
+$gray-lighter: #f9f9f9;
+$gray-light: #eef2f8;
+$gray: #cccccc;
+$gray-dark: #9eabb3;
+
+$dark-light: #666666;
+$dark: #5d686f;
+$dark-darker: #4a4a4a;
+$dark-darkest: #171717;
+
+// screen-size
+// ====================
+$screen-xs: 480px;
+$screen-sm: 768px;
+$screen-md: 990px;
+$screen-lg: 1200px;
+$screen-xlg: 1400px;
+
+// default components
+// ====================
+$theme-color: $dark-darker;
+$bg-color-default: $gray-lighter;
+
+$font-color-default: $dark;
+
+$link-color-default: darken($theme-color, 6%);
+
+// code highlights
+$highlight-background: rgb(242, 243, 241); //#1E2A2F;
+$highlight-background-inline: #DBE1E4;
+$highlight-foreground: #333; //#cccccc;
+$highlight-foreground-inline: #2c7722; //#524D4D;
+
+$highlight-current-line: #393939;
+$highlight-selection: #515151;
+$highlight-comment: #999;
+$highlight-function: #ffcc66;
+$highlight-title: #f99157;
+$highlight-string: #99cc99;
+$highlight-params: #999;
+$highlight-built-in: #6699cc;
+$highlight-line-number-color: #666;

@@ -5,76 +5,107 @@
     <%
     var title = page.title;
     if (is_archive()) {
-        title = '归档';
-    } else if (is_tag()) {
+        title = '文章';
+    }
+    else if (is_tag()) {
         title = '#' + page.tag;
     }
     %>
     <meta http-equiv="x-ua-compatible" content="IE=edge"/>
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
-
-    <% if(config.author){%>
+    <% if(config.author){ %>
     <meta name="author" content="<%= config.author %>">
-    <%} %>
-
-    <% if(config.description){%>
+    <% } %>
+    <% if(config.description){ %>
     <meta name="description" content="<%= config.description %>">
-    <%} %>
-
-    <% if(config.keywords){%>
+    <% } %>
+    <% if(config.keywords){ %>
     <meta name="keywords" content="<%= config.keywords %>">
-    <%} %>
-
+    <% } %>
     <title><% if (title){ %><%= title %> | <% } %><%= config.title %></title>
-
+    <% if (is_home()) { %>
+    <%- css('stylesheets/index.min.css') %>
+    <% } else { %>
     <%- css('stylesheets/style.min.css') %>
+    <% } %>
 </head>
 <body>
-<div id="loading">
-    <div id="loading-box">
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
-        <div></div>
+<% if (is_home()){ %>
+<%- body %>
+<% }else{ %>
+<span id="top"> </span>
+<%
+    var sidebar_bg = '';
+    if (page.sidebar_bg) {
+        sidebar_bg = 'style="background-image: url(' + page.sidebar_bg + ')"';
+    }
+    else {
+        sidebar_bg = 'style="background-image: url(/images/sidebar-bg/' + Math.floor(Math.random() * theme.sidebar_content.image_number) + '.jpg)"';
+    }
+%>
+<aside id="sidebar" <%- sidebar_bg %>>
+    <div id="sidebar-overlay">
+        <div id="sidebar-inner-wrap">
+            <nav id="site-nav">
+                <ul class="list-unstyled">
+                    <% for(var key in theme.menu){ %>
+                    <% if (theme.menu.hasOwnProperty(key)){ %>
+                    <li><a href="<%- theme.menu[key] %>"><%= key %></a></li>
+                    <% } %>
+                    <% } %>
+                </ul>
+            </nav>
+            <div id="site-intro">
+                <p>
+                    <% if (theme.sidebar_content['1']) { %>
+                    <%= theme.sidebar_content['1'] %>
+                    <% } %>
+                    <% if (theme.sidebar_content['2']) { %>
+                    <small><%= theme.sidebar_content['2'] %></small>
+                    <% } %>
+                </p>
+                <% if (config.subtitle) { %>
+                <p><%= config.subtitle %></p>
+                <% } %>
+            </div>
+        </div>
+
+        <a href="https://unsplash.com" target="_blank" id="image-source" class="align-left hidden-xs"
+           data-content="Photo from unsplash.com">i</a>
     </div>
-</div>
-<div id="outer-container">
-    <nav id="navbar">
-        <ul id="site-menu" class="list-inline">
-            <% for(var key in theme.menu){ %>
-            <% if (theme.menu.hasOwnProperty(key)){%>
-                <li><a href="<%- theme.menu[key] %>"><%= key %></a></li>
-            <%}%>
+</aside>
+
+<main id="main-container">
+    <div id="main-inner-wrap">
+        <div id="page-content">
+            <% if (!is_post()){ %>
+            <% if (title){ %>
+            <h1 id="page-title"><%= title %></h1>
+            <% }else{ %>
+            <h1 id="page-title"><%= config.title %></h1>
             <% } %>
-        </ul>
-    </nav>
 
-    <% if (!is_post()){ %>
-    <header id="masthead" class="container">
-        <% if (title){ %>
-        <h1 id="page-title"><%= title %></h1>
-        <% }else{ %>
-        <h1 id="page-title"><%= config.title %></h1>
-        <% } %>
+            <% if (page.page_subtitle){ %>
+            <p id="page-subtitle"><%= page.page_subtitle %></p>
+            <% } %>
+            <% } %>
 
-        <% if (page.page_subtitle){ %>
-        <p id="page-subtitle"><%= page.page_subtitle %></p>
-        <% }else if(theme.subtitle){ %>
-        <p id="page-subtitle"><%= theme.subtitle %></p>
-        <% } %>
-    </header>
-    <% } %>
+            <%- body %>
+        </div>
+        <footer id="mastfoot">
+            <p>
+                Powered by <a href="http://www.hexo.io" target="_blank">Hexo</a> |
+                <a href="https://github.com/geekwen/hexo-theme" target="_blank">Theme</a> by
+                <a href="http://geekwen.com">Geekwen</a> |
+                <a href="/atom.xml">RSS</a>
+            </p>
 
-    <%- body %>
-
-    <button id="back-to-top" class="hide"><span></span></button>
-
-    <footer id="mastfoot">
-        <p>Powered by <a href="http://www.hexo.io" target="_blank">hexo</a>, <a href="https://github.com/geekwen/hexo-theme-Quiet" target="_blank">theme</a> by <a href="http://geekwen.com">Geekwen</a>. <a href="http://geekwen.com/atom.xml">RSS</a></p>
-        <p>Since 2015</p>
-    </footer>
-</div>
-<%- js('script/common') %>
+            <% if (theme.blog_since) { %>
+            <p>Since <%= theme.blog_since %></p>
+            <% } %>
+        </footer>
+    </div>
+</main>
+<% } %>
 </body>
 </html>

@@ -1,22 +1,16 @@
-<main>
-    <div class="content-wrap">
-        <% if (page.type === 'tag-cloud'){ %>
-        <div id="tag-cloud" class="container">
-            <p id="total-tag-num">共有 <%= site.tags.length %> 个标签</p>
-            <div id="tag-cloud-list">
-                <%- tagcloud(site.tags, {
-                    max_font: 30,
-                    min_font: 14,
-                    color: true,
-                    start_color: "rgba(0,0,0,.4)",
-                    end_color: "rgba(0,0,0,1)"
-                }) %>
-            </div>
-        </div>
-        <% }else {%>
-        <div id="article-post">
-            <%- partial('_partial/article', {post: page}) %>
-        </div>
-        <% } %>
+<% if (page.type === 'tag-cloud'){ %>
+<div id="page-article-list" class="container">
+    <p id="total-tag-num">共 <%= site.tags.length %> 个标签</p>
+    <div id="tag-cloud-list">
+        <%- tagcloud(site.tags, {
+            max_font: 30,
+            min_font: 14,
+            color: true,
+            start_color: "rgba(0,0,0,.4)",
+            end_color: "rgba(0,0,0,1)"
+        }) %>
     </div>
-</main>
+</div>
+<% }else { %>
+<%- partial('post') %>
+<% } %>

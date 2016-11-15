@@ -1,15 +1,8 @@
-<main>
-    <div class="content-wrap">
-        <div id="tag-post-list" class="container">
-            <!--<p id="total-tag-post-num">该标签下共有  /*page.posts.length*/  篇文章</p>-->
-            <div id="tag-post-list-body">
-                <ul class="list-unstyled">
-                    <% page.posts.each(function(post){ %>
-                    <li><a href="<%- url_for(post.path) %>"><time><%= date(post.date, 'YYYY-MM-DD') %></time> <%= post.title %></a></li>
-                    <% }) %>
-                </ul>
-            </div>
-            <%- partial('_partial/pagination') %>
-        </div>
-    </div>
-</main>
+<div id="page-article-list" data-content="共 <%= page.posts.length %> 篇文章">
+    <% page.posts.each(function(post){ %>
+    <article>
+        <h3><a href="<%- url_for(post.path) %>"><%= post.title %></a></h3>
+        <time><%= date(post.date, 'YYYY-MM-DD') %></time>
+    </article>
+    <% }) %>
+</div>

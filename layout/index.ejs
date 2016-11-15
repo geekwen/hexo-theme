@@ -1,11 +1,52 @@
-<main>
-    <div class="content-wrap">
-        <div id="index-article-list">
-            <% page.posts.each(function(post){ %>
-                <%- partial('_partial/article', {post: post}) %>
-            <% }) %>
-        </div>
+<header id="masthead">
+    <div id="home-head">
+        <% if (theme.logo_url) { %>
+        <img id="logo" src="<%= theme.logo_url %>" alt="logo">
+        <% } %>
+        <% if (theme.site_url) { %>
+        <%= theme.site_url %>
+        <% } %>
+        <br>
+        <% if (config.subtitle) { %>
+        <small><%= config.subtitle %></small>
+        <% } %>
+    </div>
+</header>
 
-        <%- partial('_partial/pagination') %>
+<aside id="sidebar">
+    <nav id="site-nav">
+        <ul class="list-unstyled">
+            <% for(var key in theme.menu){ %>
+            <% if (theme.menu.hasOwnProperty(key)){ %>
+            <li><a href="<%- theme.menu[key] %>"><%= key %></a></li>
+            <% } %>
+            <% } %>
+        </ul>
+    </nav>
+</aside>
+
+<main id="main-container">
+    <div id="home-content">
+        <% if (theme.index_content['1']) { %>
+        <p><%= theme.index_content['1'] %></p>
+        <% } %>
+        <% if (theme.index_content['2']) { %>
+        <p><%= theme.index_content['2'] %></p>
+        <% } %>
     </div>
 </main>
+
+<footer id="mastfoot">
+    <p>
+        <% if (theme.blog_since) { %>
+        Since <%= theme.blog_since %> |
+        <% } %>
+        Powered by <a href="http://www.hexo.io" target="_blank">Hexo</a> |
+        <a href="https://github.com/geekwen/hexo-theme" target="_blank">Theme</a> by
+        <a href="http://geekwen.com">Geekwen</a> |
+        <a href="/atom.xml">RSS</a>
+    </p>
+</footer>
+
+<a href="https://unsplash.com" target="_blank" id="image-source" class="align-right hidden-xs"
+   data-content="Photo from unsplash.com">i</a>
