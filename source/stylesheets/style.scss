@@ -302,3 +302,9 @@ body {
     margin-right: 0;
   }
 }
+
+@media (min-width: $screen-xlg) {
+  #main-inner-wrap {
+    left: 15%;
+  }
+}

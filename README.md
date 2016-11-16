@@ -1,4 +1,4 @@
-## Hexo theme ON THE WAY
+## Hexo theme v2: ON THE WAY
 
 一个简单的hexo主题
 
