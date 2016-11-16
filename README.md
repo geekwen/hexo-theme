@@ -2,6 +2,8 @@
 
 一个简单的hexo主题
 
+历史主题请查看[releases](https://github.com/geekwen/hexo-theme/releases)。如有需要可自行下载，按照对应的readme说明使用。
+
 ## Screenshots
 
 ![1](https://raw.githubusercontent.com/geekwen/hexo-theme/master/screenshot/v2/1.jpg)
@@ -48,17 +50,6 @@ sidebar_content:
   image_number: 16
 ```
 
-### 侧边栏背景图片自定义
-
-给文章／页面添加一个 ```sidebar_bg```。如：   
-
-```
-title: 关于
-date: 2015-10-14 15:33:51
-sidebar_bg: /images/sidebar-bg/0.jpg 
----
-```
-
 ### 关闭归档页面的分页功能
 
 > 因为归档页面的设计是不需要分页的，也不需要年、月视图
@@ -96,18 +87,6 @@ type: "tag-cloud"
 
 并在主题的 ```_config.yml``` 中添加导航链接
 
-### 配置导航链接
-
-在主题的 `_config.yml` 中配置导航链接：
-
-```
-menu:
-  首页: /
-  文章: /archives
-  标签: /tags
-  关于: /about
-```
-
 ### 修改页面的副标题
 
 > 默认副标题是站点副标题
@@ -118,6 +97,17 @@ menu:
 title: 关于
 date: 2015-10-14 15:33:51
 page_subtitle: "这是关于我的页面"
+---
+```
+
+### 侧边栏背景图片自定义
+
+给文章／页面添加一个 ```sidebar_bg```。如：   
+
+```
+title: 关于
+date: 2015-10-14 15:33:51
+sidebar_bg: /images/sidebar-bg/0.jpg 
 ---
 ```
 
