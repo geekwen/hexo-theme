@@ -39,9 +39,6 @@
     if (page.sidebar_bg) {
         sidebar_bg = 'style="background-image: url(' + page.sidebar_bg + ')"';
     }
-    else {
-        sidebar_bg = 'style="background-image: url(/images/sidebar-bg/' + Math.floor(Math.random() * theme.sidebar_content.image_number) + '.jpg)"';
-    }
 %>
 <aside id="sidebar" <%- sidebar_bg %>>
     <div id="sidebar-overlay">
@@ -106,6 +103,13 @@
         </footer>
     </div>
 </main>
+
+<script>
+    var sidebar = document.getElementById('sidebar');
+    if (!sidebar.getAttribute('style')) {
+        sidebar.setAttribute('style', 'background-image: url(/images/sidebar-bg/' + Math.floor(Math.random() * parseInt('<%= theme.sidebar_content.image_number %>')) + '.jpg)');
+    }
+</script>
 <% } %>
 </body>
 </html>
