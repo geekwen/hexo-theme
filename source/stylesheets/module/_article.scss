@@ -12,6 +12,42 @@
   line-height: 1.8;
 }
 
+.post-meta {
+  margin-bottom: 40px;
+  font-size: 14px;
+  //color: #4f7a94; //$gray-dark;
+  color: rgba(#4f7a94, 0.6);
+
+  > li {
+    display: block;
+  }
+
+  @media (min-width: $screen-sm) {
+    > li {
+      display: inline-block;
+
+      &:not(:last-child)::after {
+        content: "|";
+        margin-left: 5px;
+        margin-right: 5px;
+      }
+    }
+  }
+}
+
+.post-tags-list {
+  @extend .list-inline;
+
+  &::before {
+    content: "标签：";
+  }
+
+  li:not(:last-child)::after {
+    content: ",";
+    margin-right: 5px;
+  }
+}
+
 #article-post {
   .post-inner-wrap {
     position: relative;
@@ -25,41 +61,6 @@
       text-align: center;
       color: $gray;
       font-size: 14px;
-    }
-  }
-
-  .post-meta {
-    margin-bottom: 40px;
-    font-size: 14px;
-    color: #4f7a94; //$gray-dark;
-
-    > li {
-      display: block;
-    }
-
-    @media (min-width: $screen-sm) {
-      > li {
-        display: inline-block;
-
-        &:not(:last-child)::after {
-          content: "|";
-          margin-left: 5px;
-          margin-right: 5px;
-        }
-      }
-    }
-  }
-
-  .post-tags-list {
-    @extend .list-inline;
-
-    &::before {
-      content: "标签：";
-    }
-
-    li:not(:last-child)::after {
-      content: ",";
-      margin-right: 5px;
     }
   }
 

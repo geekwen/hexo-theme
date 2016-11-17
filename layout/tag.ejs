@@ -2,7 +2,17 @@
     <% page.posts.each(function(post){ %>
     <article>
         <h3><a href="<%- url_for(post.path) %>"><%= post.title %></a></h3>
-        <time><%= date(post.date, 'YYYY-MM-DD') %></time>
+        <ul class="post-meta list-inline">
+            <li>时间：<time><%= date(post.date, 'YYYY-MM-DD') %></time></li>
+            <% if (post.tags && post.tags.length){ %>
+            <li>
+                <%- list_tags(post.tags, {
+                    'show_count': false,
+                    'class': 'post-tags'
+                }) %>
+            </li>
+            <% } %>
+        </ul>
     </article>
     <% }) %>
 </div>

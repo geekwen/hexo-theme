@@ -4,7 +4,7 @@
         <h1 id="page-title"><%= page.title %></h1>
 
         <ul class="post-meta list-inline">
-            <li>发表于 <%= date(page.date, 'YYYY-MM-DD') %></li>
+            <li>时间：<time><%= date(page.date, 'YYYY-MM-DD') %></time></li>
             <% if (page.tags && page.tags.length){ %>
             <li>
                 <%- list_tags(page.tags, {

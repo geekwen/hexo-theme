@@ -1,24 +1,35 @@
 
 <div id="page-article-list" data-content="共 <%= page.posts.length %> 篇文章">
-    <% var last = 0, year; %>
-    <% page.posts.each(function(post){ %>
+    <% var last = 0, year, length = page.posts.length; %>
+    <% page.posts.each(function(post, index){ %>
 
     <% year = post.date.year(); %>
     <% /*new year*/ %>
     <% if (last != year){ %>
-        </section>
+        <% if (last != 0){ %>
+            </section>
+        <% } %>
         <% last = year; %>
         <section id="year-<%= year %>">
         <h2><%= year %></h2>
-        <article>
-            <h3><a href="<%- url_for(post.path) %>"><%= post.title %></a></h3>
-            <time><%= date(post.date, 'MM-DD') %></time>
-        </article>
-    <% }else{ %>
-        <article>
-            <h3><a href="<%- url_for(post.path) %>"><%= post.title %></a></h3>
-            <time><%= date(post.date, 'MM-DD') %></time>
-        </article>
+    <% } %>
+    <article>
+        <h3><a href="<%- url_for(post.path) %>"><%= post.title %></a></h3>
+        <ul class="post-meta list-inline">
+            <li>时间：<time><%= date(post.date, 'MM-DD') %></time></li>
+            <% if (post.tags && post.tags.length){ %>
+            <li>
+                <%- list_tags(post.tags, {
+                    'show_count': false,
+                    'class': 'post-tags'
+                }) %>
+            </li>
+            <% } %>
+        </ul>
+    </article>
+
+    <% if (index >= length - 1) { %>
+        </section>
     <% } %>
 
     <% }); %>
