@@ -28,7 +28,7 @@ $basic-transition-time: 0.4s;
 }
 
 img {
-  max-width: 90%;
+  max-width: calc(100% - 10px);
   margin-left: 5px;
   margin-right: 5px;
   border-radius: 5px;
