@@ -111,6 +111,17 @@ sidebar_bg: /images/sidebar-bg/0.jpg
 ---
 ```
 
+如果需要修改侧边栏左下角图片的来源介绍，需要同时填写 ```sidebar_bg```（该图片的地址），```sidebar_bg_src```（该图片的来源地址），```sidebar_bg_info```（图片的介绍）
+
+```
+title: 关于
+date: 2015-10-14 15:33:51
+sidebar_bg: /images/sidebar-bg/0.jpg 
+sidebar_bg_src: https://unsplash.com
+sidebar_bg_info: Photo by unsplash
+---
+```
+
 ### 给站点添加订阅功能
 
 首先安装插件：

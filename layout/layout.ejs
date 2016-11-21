@@ -12,7 +12,8 @@
     }
     %>
     <meta http-equiv="x-ua-compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
     <% if(config.author){ %>
     <meta name="author" content="<%= config.author %>">
     <% } %>
@@ -22,7 +23,11 @@
     <% if(config.keywords){ %>
     <meta name="keywords" content="<%= config.keywords %>">
     <% } %>
-    <title><% if (title){ %><%= title %> | <% } %><%= config.title %></title>
+    <title>
+        <% if (title){ %>
+        <%= title %> |
+        <% } %>
+        <%= config.title %></title>
     <% if (is_home()) { %>
     <%- css('stylesheets/index.min.css') %>
     <% } else { %>
@@ -67,7 +72,10 @@
             </div>
         </div>
 
-        <% if (!page.sidebar_bg) { %>
+        <% if (page.sidebar_bg && page.sidebar_bg_src && page.sidebar_bg_info) { %>
+        <a href="<%= page.sidebar_bg_src || '#' %>" target="_blank" id="image-source" class="align-left hidden-xs"
+           data-content="<%= page.sidebar_bg_info %>">i</a>
+        <% } else if (!page.sidebar_bg) { %>
         <a href="https://unsplash.com" target="_blank" id="image-source" class="align-left hidden-xs"
            data-content="Photo from unsplash.com">i</a>
         <% } %>
