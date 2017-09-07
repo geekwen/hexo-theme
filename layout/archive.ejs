@@ -16,7 +16,7 @@
     <article>
         <h3><a href="<%- url_for(post.path) %>"><%= post.title %></a></h3>
         <ul class="post-meta list-inline">
-            <li>时间：<time><%= date(post.date, 'MM-DD') %></time></li>
+            <li>时间：<time><%= date(post.date, 'YYYY-MM-DD') %></time></li>
             <% if (post.tags && post.tags.length){ %>
             <li>
                 <%- list_tags(post.tags, {

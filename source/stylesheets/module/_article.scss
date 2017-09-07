@@ -5,6 +5,7 @@
 }
 
 #page-title {
+  margin-top: 10vh;
   font-size: 2rem;
 }
 
@@ -12,11 +13,14 @@
   line-height: 1.8;
 }
 
+#page-title + .post-meta {
+  margin-top: 15px;
+}
+
 .post-meta {
-  margin-bottom: 40px;
+  margin-bottom: 60px;
   font-size: 14px;
-  //color: #4f7a94; //$gray-dark;
-  color: rgba(#4f7a94, 0.6);
+  color: rgba(#4f7a94, 0.8);
 
   > li {
     display: block;
@@ -96,53 +100,22 @@
   }
 }
 
-// 文章导航
 #article-nav {
-  padding-bottom: 80px; // 为文章标题留内容
+  padding-bottom: 80px;
   color: $gray-dark;
   line-height: 20px;
-
-  @media (max-width: $screen-sm - 1) {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
-
-  @media (min-width: $screen-sm) {
-    text-align: center;
-  }
+  font-size: 14px;
 
   li {
     margin-bottom: 10px;
 
-    @media (min-width: $screen-sm) {
-      display: inline-block;
-      width: 45%;
-    }
-
-    &:first-child {
-      @media (min-width: $screen-sm) {
-        margin-right: 5%;
-        text-align: right;
-
-        a::after {
-          right: 0;
-        }
-      }
-    }
-
     &:last-child {
       text-align: left;
-
-      @media (min-width: $screen-sm) {
-        a::after {
-          left: 0;
-        }
-      }
     }
 
     // 链接
     a {
-      display: block;
+      display: inline-block;
       padding-bottom: 10px;
       position: relative;
       -webkit-transition: color .4s;
@@ -157,48 +130,31 @@
       }
 
       &::before {
-        @media (max-width: $screen-sm - 1) {
-          float: left;
-          width: 20px;
-          height: 20px;
-          margin-right: 5px;
-          border-radius: 50%;
-          background-color: $gray-light;
-          font-size: 12px;
-          line-height: 20px;
-          text-align: center;
-        }
+        float: left;
+        width: 20px;
+        height: 20px;
+        margin-right: 5px;
+        border-radius: 50%;
+        font-size: 12px;
+        line-height: 20px;
+        text-align: center;
       }
 
       &.prev::before {
         content: "<";
-
-        @media (min-width: $screen-sm) {
-          content: "< 上一篇";
-        }
       }
 
       &.next::before {
         content: ">";
-
-        @media (min-width: $screen-sm) {
-          content: "下一篇 >";
-        }
       }
 
       &::after {
         content: attr(data-title);
         overflow: hidden;
-
-        // 要用绝对定位是因为文章标题长短不一致，需要让 li 的居中不受文章标题长度影响
-        @media (min-width: $screen-sm) {
-          position: absolute;
-          top: 100%;
-        }
       }
 
       &:hover {
-        color: #3e3e3e;
+        color: $dark;
         text-decoration: none;
       }
     }

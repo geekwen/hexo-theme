@@ -14,20 +14,26 @@
     <meta http-equiv="x-ua-compatible" content="IE=edge"/>
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"/>
+
     <% if(config.author){ %>
     <meta name="author" content="<%= config.author %>">
     <% } %>
+
     <% if(config.description){ %>
     <meta name="description" content="<%= config.description %>">
     <% } %>
+
     <% if(config.keywords){ %>
     <meta name="keywords" content="<%= config.keywords %>">
     <% } %>
+
     <title>
         <% if (title){ %>
         <%= title %> |
         <% } %>
-        <%= config.title %></title>
+        <%= config.title %>
+    </title>
+
     <% if (is_home()) { %>
     <%- css('stylesheets/index.min.css') %>
     <% } else { %>
@@ -35,52 +41,34 @@
     <% } %>
 </head>
 <body>
+
 <% if (is_home()){ %>
 <%- body %>
 <% }else{ %>
-<span id="top"> </span>
-<%
-    var sidebar_bg = '';
-    if (page.sidebar_bg) {
-        sidebar_bg = 'style="background-image: url(' + page.sidebar_bg + ')"';
-    }
-%>
-<aside id="sidebar" <%- sidebar_bg %>>
-    <div id="sidebar-overlay">
-        <div id="sidebar-inner-wrap">
-            <nav id="site-nav">
-                <ul class="list-unstyled">
-                    <% for(var key in theme.menu){ %>
-                    <% if (theme.menu.hasOwnProperty(key)){ %>
-                    <li><a href="<%- theme.menu[key] %>"><%= key %></a></li>
-                    <% } %>
-                    <% } %>
-                </ul>
-            </nav>
-            <div id="site-intro">
-                <p>
-                    <% if (theme.sidebar_content['1']) { %>
-                    <%= theme.sidebar_content['1'] %>
-                    <% } %>
-                    <% if (theme.sidebar_content['2']) { %>
-                    <small><%= theme.sidebar_content['2'] %></small>
-                    <% } %>
-                </p>
-                <% if (config.subtitle) { %>
-                <p><%= config.subtitle %></p>
-                <% } %>
-            </div>
-        </div>
+<span id="#"></span>
 
-        <% if (page.sidebar_bg && page.sidebar_bg_src && page.sidebar_bg_info) { %>
-        <a href="<%= page.sidebar_bg_src || '#' %>" target="_blank" id="image-source" class="align-left hidden-xs"
-           data-content="<%= page.sidebar_bg_info %>">i</a>
-        <% } else if (!page.sidebar_bg) { %>
-        <a href="https://unsplash.com" target="_blank" id="image-source" class="align-left hidden-xs"
-           data-content="Photo from unsplash.com">i</a>
+<header id="masthead">
+    <a href="/">
+        <% if (theme.logo_url) { %>
+        <img id="logo" src="<%= theme.logo_url %>" alt="logo">
         <% } %>
-    </div>
-</aside>
+
+        <% if (theme.site_url) { %>
+        <%= theme.site_url %>
+        <% } else { %>
+        Home
+        <% } %>
+    </a>
+    <nav id="site-nav">
+        <ul class="list-inline">
+            <% for(var key in theme.menu){ %>
+            <% if (theme.menu.hasOwnProperty(key)){ %>
+            <li><a href="<%- theme.menu[key] %>"><%= key %></a></li>
+            <% } %>
+            <% } %>
+        </ul>
+    </nav>
+</header>
 
 <main id="main-container">
     <div id="main-inner-wrap">
@@ -99,27 +87,26 @@
 
             <%- body %>
         </div>
-        <footer id="mastfoot">
-            <p>
-                Powered by <a href="http://www.hexo.io" target="_blank">Hexo</a> |
-                <a href="https://github.com/geekwen/hexo-theme" target="_blank">Theme</a> by
-                <a href="http://geekwen.com">Geekwen</a> |
-                <a href="/atom.xml">RSS</a>
-            </p>
-
-            <% if (theme.blog_since) { %>
-            <p>Since <%= theme.blog_since %></p>
-            <% } %>
-        </footer>
     </div>
 </main>
 
-<script>
-    var sidebar = document.getElementById('sidebar');
-    if (!sidebar.getAttribute('style')) {
-        sidebar.setAttribute('style', 'background-image: url(/images/sidebar-bg/' + Math.floor(Math.random() * parseInt('<%= theme.sidebar_content.image_number %>')) + '.jpg)');
-    }
-</script>
+<% if (!is_home()) { %>
+<a id="back-to-top" href="#">TOP</a>
 <% } %>
+
+<footer id="mastfoot">
+    <p>
+        Powered by <a href="http://www.hexo.io" target="_blank">Hexo</a> |
+        <a href="https://github.com/geekwen/hexo-theme" target="_blank">Theme</a> by
+        <a href="http://geekwen.com">Geekwen</a> |
+        <a href="/atom.xml">RSS</a>
+    </p>
+
+    <% if (theme.blog_since) { %>
+    <p>Since <%= theme.blog_since %></p>
+    <% } %>
+</footer>
+<% } %>
+
 </body>
 </html>

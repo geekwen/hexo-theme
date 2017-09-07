@@ -1,4 +1,4 @@
-## Hexo theme v2: ON THE WAY
+## Hexo theme v3: Crude
 
 一个简单的hexo主题
 
@@ -6,11 +6,9 @@
 
 ## Screenshots
 
-![1](https://raw.githubusercontent.com/geekwen/hexo-theme/master/screenshot/v2/1.jpg)
+![1](https://raw.githubusercontent.com/geekwen/hexo-theme/master/screenshot/v3/1.jpg)
 
-![2](https://raw.githubusercontent.com/geekwen/hexo-theme/master/screenshot/v2/2.jpg)
-
-![3](https://raw.githubusercontent.com/geekwen/hexo-theme/master/screenshot/v2/3.jpg)
+![2](https://raw.githubusercontent.com/geekwen/hexo-theme/master/screenshot/v3/2.jpg)
 
 ## DEMO
 
@@ -31,23 +29,16 @@ menu:
 # 博客建设时间：显示在页脚
 blog_since: 2015
 
-# 网站链接：显示在首页左上角
+# 网站链接：显示在左上角
 site_url: geekwen.com
 
-# 网站logo链接：显示在首页左上角
+# 网站logo链接：显示在左上角
 logo_url: /images/logo.png
 
 # 首页正文内容：分别对应第一行和第二行
 index_content:
-  1: 岁 月 静 好
-  2: 安 然 前 行
-
-# 非首页页面侧边栏内容
-# image_number 是侧边栏背景图片数量。侧边栏背景图片在source/images/sidebar-bg下，命名必须为"数字.jpg"
-sidebar_content:
-  1: GEEKWEN
-  2: .com
-  image_number: 16
+  1: Geekwen
+  2: 一个前端开发工程师的博客
 ```
 
 ### 关闭归档页面的分页功能
@@ -97,28 +88,6 @@ type: "tag-cloud"
 title: 关于
 date: 2015-10-14 15:33:51
 page_subtitle: "这是关于我的页面"
----
-```
-
-### 侧边栏背景图片自定义
-
-给文章／页面添加一个 ```sidebar_bg```。如：   
-
-```
-title: 关于
-date: 2015-10-14 15:33:51
-sidebar_bg: /images/sidebar-bg/0.jpg 
----
-```
-
-如果需要修改侧边栏左下角图片的来源介绍，需要同时填写 ```sidebar_bg```（该图片的地址），```sidebar_bg_src```（该图片的来源地址），```sidebar_bg_info```（图片的介绍）
-
-```
-title: 关于
-date: 2015-10-14 15:33:51
-sidebar_bg: /images/sidebar-bg/0.jpg 
-sidebar_bg_src: https://unsplash.com
-sidebar_bg_info: Photo by unsplash
 ---
 ```
 

@@ -24,13 +24,13 @@ $screen-xlg: 1400px;
 $theme-color: $dark-darker;
 $bg-color-default: $gray-lighter;
 
-$font-color-default: $dark;
+$font-color-default: $dark-darker;
 
 $link-color-default: darken($theme-color, 6%);
 
 // code highlights
 $highlight-background: rgb(242, 243, 241); //#1E2A2F;
-$highlight-background-inline: #DBE1E4;
+$highlight-background-inline: #eee;
 $highlight-foreground: #333; //#cccccc;
 $highlight-foreground-inline: #2c7722; //#524D4D;
 
