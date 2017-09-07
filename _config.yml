@@ -8,20 +8,13 @@ menu:
 # 博客建设时间：显示在页脚
 blog_since: 2015
 
-# 网站链接：显示在首页左上角
+# 网站链接：显示在左上角
 site_url: geekwen.com
 
-# 网站logo链接：显示在首页左上角
+# 网站logo链接：显示在左上角
 logo_url: /images/logo.png
 
 # 首页正文内容：分别对应第一行和第二行
 index_content:
-  1: 岁 月 静 好
-  2: 安 然 前 行
-
-# 非首页页面侧边栏内容
-# image_number 是侧边栏背景图片数量。侧边栏背景图片在source/images/sidebar-bg下，命名必须为"数字.jpg"
-sidebar_content:
-  1: GEEKWEN
-  2: .com
-  image_number: 16
+  1: Geekwen
+  2: 一个前端开发工程师的博客
