@@ -19,16 +19,65 @@ $screen-md: 990px;
 $screen-lg: 1200px;
 $screen-xlg: 1400px;
 
-// default components
+// font color
 // ====================
-$theme-color: $dark-darker;
-$bg-color-default: $gray-lighter;
-
 $font-color-default: $dark-darker;
+$font-color-theme-yellow: $dark-darker;
 
-$link-color-default: darken($theme-color, 6%);
+// body background color
+// ====================
+$body-background: #fff;
+$body-background-theme-yellow: #FDEB71 linear-gradient(135deg, #FDEB71 10%, #F8D800 100%) no-repeat center center fixed;
+
+// mark element
+// ====================
+$mark-bg-color: #ff0;
+$mark-font-color: #333;
+
+// hr
+// ====================
+$hr-border-color: #ccc;
+
+// a link hover color
+// ====================
+$link-hover-color: darken($dark-darker, 6%);
+
+// home nav link color
+// ====================
+$home-link-color: #666;
+
+// footer color
+// ====================
+$footer-font-color: #c9c9c9;
+
+// top nav color
+// ====================
+$top-nav-link-color: #777;
+
+// back to top button color
+// ====================
+$back-to-top-color: #eee;
+$back-to-top-hover-color: $dark;
+
+// tag cloud
+// ====================
+$tag-cloud-link-color: $gray;
+$tag-cloud-link-underline-color: $gray;
+$tag-cloud-link-hover-color: $link-hover-color;
+$tag-cloud-link-underline-hover-color: $link-hover-color;
+
+// article content
+// ====================
+$article-meta-color: rgba(#4f7a94, 0.8);
+$article-quote-color: #6e7e83;
+$article-quote-border-left-color: #ccc;
+$article-link-color: #09f;
+$article-end-color: $gray;
+$article-nav-color: $gray-dark;
+$article-nav-hover-color: $dark;
 
 // code highlights
+// ====================
 $highlight-background: rgb(242, 243, 241); //#1E2A2F;
 $highlight-background-inline: #eee;
 $highlight-foreground: #333; //#cccccc;
