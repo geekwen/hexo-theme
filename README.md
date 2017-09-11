@@ -39,6 +39,11 @@ logo_url: /images/logo.png
 index_content:
   1: Geekwen
   2: 一个前端开发工程师的博客
+
+# 在对应的标签页面显示副标题（不区分大小写，可以用 html 标签）
+tag:
+  webpack: <a href="https://doc.webpack-china.org" target="_blank">webpack</a> 是一个现代 JavaScript 应用程序的模块打包器(module bundler)。
+  node.js: <a href="https://nodejs.org" target="_blank">Node.js</a> 是一个能够在服务器端运行JavaScript的开放源代码、跨平台JavaScript运行环境。
 ```
 
 ### 关闭归档页面的分页功能
@@ -90,17 +95,6 @@ date: 2015-10-14 15:33:51
 page_subtitle: "这是关于我的页面"
 ---
 ```
-
-### 修改标签页的副标题
-
-在主题的 `_config.yml` 中配置：
-
-```
-tag:
-  webpack: <a href="https://doc.webpack-china.org" target="_blank">webpack</a> 是一个现代 JavaScript 应用程序的模块打包器(module bundler)。
-```
-
-如上配置就是在标签 webpack（不区分大小写） 页面显示副标题。内容允许使用 html 标签。
 
 ### 给站点添加订阅功能
 
