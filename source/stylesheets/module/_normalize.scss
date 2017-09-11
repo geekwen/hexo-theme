@@ -42,6 +42,7 @@ body {
   font-family: 'Microsoft YaHei', 'Open Sans', 'Helvetica Neue', Arial, 'Hiragino Sans GB', 'WenQuanYi Micro Hei', sans-serif;
   font-size: 14px;
   color: $font-color-default;
+  background: $body-background;
 
   @media (min-width: $screen-xlg) {
     font-size: 16px;
@@ -140,8 +141,8 @@ strong {
 //==
 
 mark {
-  background: #ff0;
-  color: #333;
+  background: $mark-bg-color;
+  color: $mark-font-color;
 }
 
 //==
@@ -203,7 +204,7 @@ svg:not(:root) {
 hr {
   box-sizing: content-box;
   height: 0;
-  border-color: #cccccc;
+  border-color: $hr-border-color;
 }
 
 //==

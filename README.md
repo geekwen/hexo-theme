@@ -91,6 +91,17 @@ page_subtitle: "这是关于我的页面"
 ---
 ```
 
+### 修改标签页的副标题
+
+在主题的 `_config.yml` 中配置：
+
+```
+tag:
+  webpack: <a href="https://doc.webpack-china.org" target="_blank">webpack</a> 是一个现代 JavaScript 应用程序的模块打包器(module bundler)。
+```
+
+如上配置就是在标签 webpack（不区分大小写） 页面显示副标题。内容允许使用 html 标签。
+
 ### 给站点添加订阅功能
 
 首先安装插件：

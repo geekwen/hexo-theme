@@ -81,7 +81,9 @@
             <% } %>
 
             <% if (page.page_subtitle){ %>
-            <p id="page-subtitle"><%= page.page_subtitle %></p>
+            <p id="page-subtitle"><%- page.page_subtitle %></p>
+            <% } else if (is_tag() && theme.tag && theme.tag[title.replace('#', '').toLocaleLowerCase()]) { %>
+            <p id="page-subtitle"><%- theme.tag[title.replace('#', '').toLocaleLowerCase()] %></p>
             <% } %>
             <% } %>
 

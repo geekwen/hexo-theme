@@ -18,3 +18,8 @@ logo_url: /images/logo.png
 index_content:
   1: Geekwen
   2: 一个前端开发工程师的博客
+
+# 标签描述
+tag:
+  webpack: <a href="https://doc.webpack-china.org" target="_blank">webpack</a> 是一个现代 JavaScript 应用程序的模块打包器(module bundler)。
+  node.js: <a href="https://nodejs.org" target="_blank">Node.js</a> 是一个能够在服务器端运行JavaScript的开放源代码、跨平台JavaScript运行环境。
