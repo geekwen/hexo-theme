@@ -1,9 +1,36 @@
 @charset "utf-8";
 
+$theme-map: ("white": $body-background, "yellow": $body-background-theme-yellow, "black": #000);
+$theme-number: length(map-keys($theme-map));
+
+#theme-selector {
+  @for $i from 1 through ($theme-number - 1) {
+    li:nth-child(#{$i}) {
+      -webkit-transform: translateY(#{($theme-number - $i) * (20 + 15)}px);
+      -moz-transform: translateY(#{($theme-number - $i) * (20 + 15)}px);
+      -ms-transform: translateY(#{($theme-number - $i) * (20 + 15)}px);
+      -o-transform: translateY(#{($theme-number - $i) * (20 + 15)}px);
+      transform: translateY(#{($theme-number - $i) * (20 + 15)}px);
+    }
+  }
+
+  @each $name, $value in $theme-map {
+    li[data-theme="#{$name}"] button {
+      background: $value !important;
+    }
+  }
+}
+
+@each $name, $value in $theme-map {
+  body[data-theme="#{$name}"] li[data-theme="#{$name}"] {
+    z-index: 10;
+  }
+}
+
 body[data-theme="yellow"] {
   > div {
     color: $font-color-theme-yellow;
-    background: $body-background-theme-yellow;
+    background: map_get($theme-map, "yellow");
   }
 
   hr {
@@ -93,9 +120,7 @@ body[data-theme="yellow"] {
     }
   }
 
-  #theme-selector {
-    li[data-type="back-to-top"] button {
-      color: $back-to-top-color-theme-yellow;
-    }
+  #theme-selsector li[data-type="back-to-top"] button {
+    color: $back-to-top-color-theme-yellow;
   }
 }
