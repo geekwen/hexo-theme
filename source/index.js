@@ -1,7 +1,6 @@
 (function () {
     var last_theme = localStorage.getItem('theme'),
         $$body = document.querySelector('body'),
-        $$theme = document.getElementById('theme-selector'),
         $$theme_btn = document.querySelectorAll('#theme-selector button');
 
     if (last_theme) {
@@ -19,7 +18,7 @@
     }
 
     function getThemeName() {
-        return $$theme.getAttribute('data-theme');
+        return $$body.getAttribute('data-theme');
     }
 
     function changeTheme(e) {
@@ -42,7 +41,6 @@
         }
 
         function action() {
-            $$theme.setAttribute('data-theme', theme_name);
             $$body.setAttribute('data-theme', theme_name);
             localStorage.setItem('theme', theme_name);
         }

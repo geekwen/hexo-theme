@@ -36,10 +36,11 @@ body[data-theme="yellow"] {
       color: $article-quote-color-theme-yellow;
       border-left-color: $article-quote-border-left-color-theme-yellow;
     }
+  }
 
-    .content a {
-      color: $article-link-color-theme-yellow;
-    }
+  #page-subtitle a,
+  #article-post .content a {
+    color: $article-link-color-theme-yellow;
   }
 
   #article-nav {
@@ -72,6 +73,24 @@ body[data-theme="yellow"] {
 
   .post-meta {
     color: $article-meta-color-theme-yellow;
+  }
+
+  #tag-cloud-list {
+    a {
+      color: $yellow-dark3 !important;
+
+      &::after {
+        background-color: $tag-cloud-link-underline-color-theme-yellow;
+      }
+
+      &:hover {
+        color: $tag-cloud-link-underline-hover-color-theme-yellow !important;
+
+        &::after {
+          background-color: $tag-cloud-link-underline-hover-color-theme-yellow;
+        }
+      }
+    }
   }
 
   #theme-selector {
