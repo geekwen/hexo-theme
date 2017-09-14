@@ -1,5 +1,16 @@
+$yellow-light4: #faff83;
 $yellow: #f5f208;
+$yellow-dark: #ffd63c;
+$yellow-dark0: #f3a923;
+$yellow-dark1: #c7ab00;
+$yellow-dark2: #c5a128;
+$yellow-dark3: #ca9529;
+$yellow-dark5: #887400;
+$yellow-darkest: #80440b;
+
 $blue: #09f;
+
+$green-darkest: #2c7722;
 
 $gray-lighter: #f9f9f9;
 $gray-light: #eef2f8;
@@ -19,76 +30,101 @@ $screen-md: 990px;
 $screen-lg: 1200px;
 $screen-xlg: 1400px;
 
+$basic-transition-time: .2s;
+$theme-transition-time: .5s;
+
 // font color
 // ====================
 $font-color-default: $dark-darker;
-$font-color-theme-yellow: $dark-darker;
+$font-color-theme-yellow: $yellow-darkest;
 
 // body background color
 // ====================
-$body-background: #fff;
+$body-background: #fff linear-gradient(135deg, #fff 10%, #fefefe 100%) no-repeat center center fixed;
 $body-background-theme-yellow: #FDEB71 linear-gradient(135deg, #FDEB71 10%, #F8D800 100%) no-repeat center center fixed;
 
 // mark element
 // ====================
-$mark-bg-color: #ff0;
-$mark-font-color: #333;
+$mark-bg-color: $yellow;
+$mark-font-color: $dark-darker;
 
 // hr
 // ====================
-$hr-border-color: #ccc;
-
-// a link hover color
-// ====================
-$link-hover-color: darken($dark-darker, 6%);
+$hr-border-color: $gray-light;
 
 // home nav link color
 // ====================
-$home-link-color: #666;
+$home-link-color: $gray-dark;
+$home-link-hover-color: darken($dark-darker, 6%);
 
-// footer color
-// ====================
-$footer-font-color: #c9c9c9;
+$home-link-color-theme-yellow: $yellow-dark1;
+$home-link-hover-color-theme-yellow: $yellow-darkest;
 
 // top nav color
 // ====================
-$top-nav-link-color: #777;
+$top-nav-link-color: $gray-dark;
+
+$top-nav-link-color-theme-yellow: $yellow-dark2;
 
 // back to top button color
 // ====================
-$back-to-top-color: #eee;
-$back-to-top-hover-color: $dark;
+$back-to-top-color: $dark;
+
+$back-to-top-color-theme-yellow: $yellow-dark3;
+
+// footer color
+// ====================
+$footer-font-color: $gray;
+$footer-font-color-theme-yellow: $yellow-dark1;
 
 // tag cloud
 // ====================
-$tag-cloud-link-color: $gray;
 $tag-cloud-link-underline-color: $gray;
-$tag-cloud-link-hover-color: $link-hover-color;
-$tag-cloud-link-underline-hover-color: $link-hover-color;
+$tag-cloud-link-underline-hover-color: $home-link-hover-color;
+
+
+
+//
+// ====================
+$theme-selector-btn-shadow-color: rgba(0, 0, 0, 0.3);
 
 // article content
 // ====================
-$article-meta-color: rgba(#4f7a94, 0.8);
-$article-quote-color: #6e7e83;
-$article-quote-border-left-color: #ccc;
-$article-link-color: #09f;
-$article-end-color: $gray;
+$article-meta-color: rgba($dark, 0.8);
+$article-link-color: $blue;
+$article-end-color: $footer-font-color;
+$article-quote-color: $dark;
+$article-quote-border-left-color: $gray;
 $article-nav-color: $gray-dark;
 $article-nav-hover-color: $dark;
 
+$article-meta-color-theme-yellow: $yellow-dark2;
+$article-link-color-theme-yellow: $yellow-dark3;
+$article-end-color-theme-yellow: $footer-font-color-theme-yellow;
+$article-quote-color-theme-yellow: $article-link-color-theme-yellow;
+$article-quote-border-left-color-theme-yellow: $article-meta-color-theme-yellow;
+$article-nav-color-theme-dark: $article-meta-color-theme-yellow;
+$article-nav-hover-color-theme-dark: $font-color-theme-yellow;
+
 // code highlights
 // ====================
-$highlight-background: rgb(242, 243, 241); //#1E2A2F;
-$highlight-background-inline: #eee;
-$highlight-foreground: #333; //#cccccc;
-$highlight-foreground-inline: #2c7722; //#524D4D;
+$highlight-foreground-inline: $green-darkest;
+$highlight-background-inline: $gray-light;
+$highlight-foreground: $dark-darker;
+$highlight-background: $gray-lighter;
+$highlight-comment: $dark;
 
-$highlight-current-line: #393939;
-$highlight-selection: #515151;
-$highlight-comment: #999;
-$highlight-function: #ffcc66;
-$highlight-title: #f99157;
-$highlight-string: #99cc99;
-$highlight-params: #999;
-$highlight-built-in: #6699cc;
-$highlight-line-number-color: #666;
+//$highlight-current-line: #393939;
+//$highlight-selection: #515151;
+//$highlight-function: #ffcc66;
+//$highlight-title: #f99157;
+//$highlight-string: #99cc99;
+//$highlight-params: #999;
+//$highlight-built-in: #6699cc;
+
+$highlight-foreground-inline-theme-yellow: $yellow-light4;
+$highlight-background-inline-theme-yellow: $yellow-dark0;
+$highlight-foreground-theme-yellow: $yellow-dark5;
+$highlight-background-theme-yellow: $yellow-dark;
+$highlight-comment-theme-yellow: $yellow-dark2;
+$highlight-line-number-color-theme-yellow: #666;
