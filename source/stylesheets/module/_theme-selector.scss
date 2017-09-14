@@ -1,5 +1,3 @@
-$theme-map: ("white": $body-background, "yellow": $body-background-theme-yellow);
-
 #theme-selector {
   width: 50px;
   min-height: 40px;
@@ -23,18 +21,22 @@ $theme-map: ("white": $body-background, "yellow": $body-background-theme-yellow)
     opacity: 1;
 
     li:not([data-type="back-to-top"]) {
-      position: static;
-      top: auto;
-      left: auto;
+      -webkit-transform: translateY(0);
+      -moz-transform: translateY(0);
+      -ms-transform: translateY(0);
+      -o-transform: translateY(0);
+      transform: translateY(0);
     }
   }
 
   li:not([data-type="back-to-top"]) {
+    position: relative;
     margin-bottom: 15px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
+    -webkit-transition: transform $basic-transition-time;
+    -moz-transition: transform $basic-transition-time;
+    -ms-transition: transform $basic-transition-time;
+    -o-transition: transform $basic-transition-time;
+    transition: transform $basic-transition-time;
 
     button {
       width: 20px;
@@ -77,17 +79,5 @@ $theme-map: ("white": $body-background, "yellow": $body-background-theme-yellow)
 
   button:focus {
     outline: none;
-  }
-
-  @each $name, $value in $theme-map {
-    li[data-theme="#{$name}"] button {
-      background: $value !important;
-    }
-  }
-}
-
-@each $name, $value in $theme-map {
-  body[data-theme="#{$name}"] li[data-theme="#{$name}"] {
-    z-index: 10;
   }
 }
