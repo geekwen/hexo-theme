@@ -1,0 +1,91 @@
+#theme-selector {
+  width: 50px;
+  min-height: 40px;
+  position: fixed;
+  right: 20px;
+  bottom: 100px;
+  z-index: 999;
+  text-align: center;
+  opacity: 0.2;
+  -webkit-transition: all $basic-transition-time;
+  -moz-transition: all $basic-transition-time;
+  -ms-transition: all $basic-transition-time;
+  -o-transition: all $basic-transition-time;
+  transition: all $basic-transition-time;
+
+  @media (min-width: $screen-sm) {
+    right: 40px;
+  }
+
+  &:hover {
+    opacity: 1;
+
+    li:not([data-type="back-to-top"]) {
+      position: static;
+      top: auto;
+      left: auto;
+    }
+  }
+
+  li:not([data-type="back-to-top"]) {
+    margin-bottom: 15px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    button {
+      width: 20px;
+      height: 20px;
+      border: 2px solid #fff;
+      -webkit-border-radius: 50px;
+      -moz-border-radius: 50px;
+      border-radius: 50px;
+      -webkit-box-shadow: 0 0 10px $theme-selector-btn-shadow-color, inset 0 0 5px $theme-selector-btn-shadow-color;
+      -moz-box-shadow: 0 0 10px $theme-selector-btn-shadow-color, inset 0 0 5px $theme-selector-btn-shadow-color;
+      box-shadow: 0 0 10px $theme-selector-btn-shadow-color, inset 0 0 5px $theme-selector-btn-shadow-color;
+      background: #fff;
+      -webkit-transition: all $basic-transition-time;
+      -moz-transition: all $basic-transition-time;
+      -ms-transition: all $basic-transition-time;
+      -o-transition: all $basic-transition-time;
+      transition: all $basic-transition-time;
+
+      &:hover {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+
+  li[data-type="back-to-top"] {
+    position: absolute;
+    bottom: -30px;
+    left: 0;
+    width: 100%;
+    padding: 10px;
+
+    button {
+      color: $back-to-top-color;
+      padding: 0;
+      border: none;
+      background-color: transparent;
+    }
+  }
+
+  button:focus {
+    outline: none;
+  }
+
+  $theme-map: ("white": $body-background, "yellow": $body-background-theme-yellow);
+
+  @each $name, $value in $theme-map {
+    li[data-theme="#{$name}"] button {
+      background: $value !important;
+    }
+
+    &[data-theme="#{$name}"] li[data-theme="#{$name}"] {
+      z-index: 10;
+    }
+  }
+}

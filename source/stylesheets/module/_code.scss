@@ -18,31 +18,31 @@
       font-weight: bold;
     }
 
-    //.attribute {
-    // color: $highlight-foreground;
-    //}
-    //
-    //.tag,
-    //.keyword {
-    // color: $highlight-function;
-    //}
-    //
-    //.title {
-    // color: $highlight-title;
-    //}
-    //
-    //.value,
-    //.string {
-    // color: $highlight-string;
-    //}
-    //
-    //.params {
-    // color: $highlight-params;
-    //}
-    //
-    //.built_in {
-    // color: $highlight-built-in;
-    //}
+    /*.attribute {
+     color: $highlight-foreground;
+    }
+
+    .tag,
+    .keyword {
+     color: $highlight-function;
+    }
+
+    .title {
+     color: $highlight-title;
+    }
+
+    .value,
+    .string {
+     color: $highlight-string;
+    }
+
+    .params {
+     color: $highlight-params;
+    }
+
+    .built_in {
+     color: $highlight-built-in;
+    }*/
 
     .comment {
       color: $highlight-comment;
@@ -63,7 +63,7 @@
   // 行数
   .gutter pre {
     margin-right: 8px;
-    color: $highlight-line-number-color;
+    color: $highlight-line-number-color-theme-yellow;
     text-align: right;
 
     span::after {

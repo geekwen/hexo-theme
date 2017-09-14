@@ -1,0 +1,82 @@
+@charset "utf-8";
+
+body[data-theme="yellow"] {
+  > div {
+    color: $font-color-theme-yellow;
+    background: $body-background-theme-yellow;
+  }
+
+  hr {
+    border-color: $yellow-dark;
+  }
+
+  #page-masthead {
+    color: $top-nav-link-color-theme-yellow;
+  }
+
+  #index-mastfoot,
+  #page-mastfoot {
+    color: $footer-font-color-theme-yellow;
+  }
+
+  #site-nav {
+    color: $home-link-color-theme-yellow;
+
+    a:hover {
+      color: $font-color-theme-yellow;
+    }
+  }
+
+  #article-post {
+    .post-inner-wrap::after {
+      color: $article-end-color-theme-yellow;
+    }
+
+    blockquote {
+      color: $article-quote-color-theme-yellow;
+      border-left-color: $article-quote-border-left-color-theme-yellow;
+    }
+
+    .content a {
+      color: $article-link-color-theme-yellow;
+    }
+  }
+
+  #article-nav {
+    color: $article-nav-color-theme-dark;
+
+    a:hover {
+      color: $article-nav-hover-color-theme-dark;
+    }
+  }
+
+  .post {
+    .highlight {
+      color: $highlight-foreground-theme-yellow;
+      background-color: $highlight-background-theme-yellow;
+
+      .gutter .line {
+        color: $font-color-theme-yellow;
+      }
+
+      .comment {
+        color: $highlight-comment-theme-yellow;
+      }
+    }
+
+    code {
+      color: $highlight-foreground-inline-theme-yellow;
+      background-color: $highlight-background-inline-theme-yellow;
+    }
+  }
+
+  .post-meta {
+    color: $article-meta-color-theme-yellow;
+  }
+
+  #theme-selector {
+    li[data-type="back-to-top"] button {
+      color: $back-to-top-color-theme-yellow;
+    }
+  }
+}

@@ -34,81 +34,88 @@
         <%= config.title %>
     </title>
 
-    <% if (is_home()) { %>
     <%- css('stylesheets/index.min.css') %>
-    <% } else { %>
-    <%- css('stylesheets/style.min.css') %>
-    <% } %>
 </head>
-<body>
-
-<% if (is_home()){ %>
-<%- body %>
-<% }else{ %>
-<span id="#"></span>
-
-<header id="masthead">
-    <a href="/">
-        <% if (theme.logo_url) { %>
-        <img id="logo" src="<%= theme.logo_url %>" alt="logo">
-        <% } %>
-
-        <% if (theme.site_url) { %>
-        <%= theme.site_url %>
-        <% } else { %>
-        Home
-        <% } %>
-    </a>
-    <nav id="site-nav">
-        <ul class="list-inline">
-            <% for(var key in theme.menu){ %>
-            <% if (theme.menu.hasOwnProperty(key)){ %>
-            <li><a href="<%- theme.menu[key] %>"><%= key %></a></li>
+<body data-theme="white">
+<div id="body-inner-container">
+    <% if (is_home()){ %>
+    <%- body %>
+    <% }else{ %>
+    <header id="page-masthead">
+        <a href="/">
+            <% if (theme.logo_url) { %>
+            <img id="logo" src="<%= theme.logo_url %>" alt="logo">
             <% } %>
+
+            <% if (theme.site_url) { %>
+            <%= theme.site_url %>
+            <% } else { %>
+            Home
+            <% } %>
+        </a>
+        <nav id="site-nav">
+            <ul class="list-inline">
+                <% for(var key in theme.menu){ %>
+                <% if (theme.menu.hasOwnProperty(key)){ %>
+                <li><a href="<%- theme.menu[key] %>"><%= key %></a></li>
+                <% } %>
+                <% } %>
+            </ul>
+        </nav>
+    </header>
+
+    <main id="page-main-container">
+        <div id="page-main-inner-wrap">
+            <div id="page-content">
+                <% if (!is_post()){ %>
+                <% if (title){ %>
+                <h1 id="page-title"><%= title %></h1>
+                <% }else{ %>
+                <h1 id="page-title"><%= config.title %></h1>
+                <% } %>
+
+                <% if (page.page_subtitle){ %>
+                <p id="page-subtitle"><%- page.page_subtitle %></p>
+                <% } else if (is_tag() && theme.tag && theme.tag[title.replace(/^#/, '').toLocaleLowerCase()]) { %>
+                <p id="page-subtitle"><%- theme.tag[title.replace(/^#/, '').toLocaleLowerCase()] %></p>
+                <% } %>
+                <% } %>
+                <%- body %>
+            </div>
+        </div>
+    </main>
+
+    <footer id="page-mastfoot">
+        <p>
+            Powered by <a href="http://www.hexo.io" target="_blank">Hexo</a> |
+            <a href="https://github.com/geekwen/hexo-theme" target="_blank">Theme</a> by
+            <a href="http://geekwen.com">Geekwen</a> |
+            <a href="/atom.xml">RSS</a>
+        </p>
+
+        <% if (theme.blog_since) { %>
+        <p>Since <%= theme.blog_since %></p>
+        <% } %>
+    </footer>
+    <% } %>
+
+    <aside id="theme-selector" data-theme="white">
+        <ul class="list-unstyled">
+            <li data-theme="white">
+                <button></button>
+            </li>
+            <li data-theme="yellow">
+                <button></button>
+            </li>
+            <% if (!is_home()) { %>
+            <li data-type="back-to-top">
+                <button id="back-to-top">TOP</button>
+            </li>
             <% } %>
         </ul>
-    </nav>
-</header>
+    </aside>
+</div>
 
-<main id="main-container">
-    <div id="main-inner-wrap">
-        <div id="page-content">
-            <% if (!is_post()){ %>
-            <% if (title){ %>
-            <h1 id="page-title"><%= title %></h1>
-            <% }else{ %>
-            <h1 id="page-title"><%= config.title %></h1>
-            <% } %>
-
-            <% if (page.page_subtitle){ %>
-            <p id="page-subtitle"><%- page.page_subtitle %></p>
-            <% } else if (is_tag() && theme.tag && theme.tag[title.replace('#', '').toLocaleLowerCase()]) { %>
-            <p id="page-subtitle"><%- theme.tag[title.replace('#', '').toLocaleLowerCase()] %></p>
-            <% } %>
-            <% } %>
-
-            <%- body %>
-        </div>
-    </div>
-</main>
-
-<% if (!is_home()) { %>
-<a id="back-to-top" href="#">TOP</a>
-<% } %>
-
-<footer id="mastfoot">
-    <p>
-        Powered by <a href="http://www.hexo.io" target="_blank">Hexo</a> |
-        <a href="https://github.com/geekwen/hexo-theme" target="_blank">Theme</a> by
-        <a href="http://geekwen.com">Geekwen</a> |
-        <a href="/atom.xml">RSS</a>
-    </p>
-
-    <% if (theme.blog_since) { %>
-    <p>Since <%= theme.blog_since %></p>
-    <% } %>
-</footer>
-<% } %>
-
+<%- js('index.js') %>
 </body>
 </html>

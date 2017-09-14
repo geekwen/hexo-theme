@@ -118,11 +118,11 @@
       display: inline-block;
       padding-bottom: 10px;
       position: relative;
-      -webkit-transition: color .4s;
-      -moz-transition: color .4s;
-      -ms-transition: color .4s;
-      -o-transition: color .4s;
-      transition: color .4s;
+      -webkit-transition: color $basic-transition-time;
+      -moz-transition: color $basic-transition-time;
+      -ms-transition: color $basic-transition-time;
+      -o-transition: color $basic-transition-time;
+      transition: color $basic-transition-time;
 
       &::before,
       &::after {

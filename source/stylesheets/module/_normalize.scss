@@ -41,8 +41,24 @@ body {
   height: 100%;
   font-family: 'Microsoft YaHei', 'Open Sans', 'Helvetica Neue', Arial, 'Hiragino Sans GB', 'WenQuanYi Micro Hei', sans-serif;
   font-size: 14px;
-  color: $font-color-default;
-  background: $body-background;
+
+  > div {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    color: $font-color-default;
+    background: $body-background;
+    -webkit-transition: opacity $theme-transition-time;
+    -moz-transition: opacity $theme-transition-time;
+    -ms-transition: opacity $theme-transition-time;
+    -o-transition: opacity $theme-transition-time;
+    transition: opacity $theme-transition-time;
+  }
+
+  &.hide > div {
+    opacity: 0;
+  }
 
   @media (min-width: $screen-xlg) {
     font-size: 16px;
@@ -183,7 +199,11 @@ sub {
 
 img {
   border: 0;
-  max-width: 100%;
+  max-width: calc(100% - 10px);
+  margin-left: 5px;
+  margin-right: 5px;
+  border-radius: 5px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
 }
 
 //==
