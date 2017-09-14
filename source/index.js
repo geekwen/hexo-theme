@@ -1,6 +1,6 @@
 (function () {
     var last_theme = localStorage.getItem('theme'),
-        $$body = document.querySelector('body'),
+        $$body = document.body,
         $$theme_btn = document.querySelectorAll('#theme-selector button');
 
     if (last_theme) {
@@ -8,14 +8,8 @@
     }
 
     $$theme_btn.forEach(function (btn) {
-        btn.id === 'back-to-top' ?
-            btn.addEventListener('click', scrollToTop) :
-            btn.addEventListener('click', changeTheme);
+        btn.addEventListener('click', changeTheme);
     });
-
-    function scrollToTop() {
-        document.getElementById('body-inner-container').scrollTop = 0;
-    }
 
     function getThemeName() {
         return $$body.getAttribute('data-theme');

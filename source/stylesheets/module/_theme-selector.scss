@@ -67,11 +67,11 @@
     bottom: -30px;
     left: 0;
     width: 100%;
-    padding: 10px;
 
-    button {
+    a {
+      display: block;
       color: $back-to-top-color;
-      padding: 0;
+      padding: 10px 0;
       border: none;
       background-color: transparent;
     }
