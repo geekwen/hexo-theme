@@ -37,6 +37,7 @@
     <%- css('stylesheets/index.min.css') %>
 </head>
 <body data-theme="white">
+<span id="#TOP"></span>
 <div id="body-inner-container">
     <% if (is_home()){ %>
     <%- body %>
@@ -109,7 +110,7 @@
             </li>
             <% if (!is_home()) { %>
             <li data-type="back-to-top">
-                <button id="back-to-top">TOP</button>
+                <a href="#TOP" id="back-to-top">TOP</a>
             </li>
             <% } %>
         </ul>
