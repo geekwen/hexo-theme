@@ -1,6 +1,6 @@
 @charset "utf-8";
 
-$theme-map: ("white": $body-background, "yellow": $body-background-theme-yellow, "black": #000);
+$theme-map: ("white": $body-background, "yellow": $body-background-theme-yellow);
 $theme-number: length(map-keys($theme-map));
 
 #theme-selector {
