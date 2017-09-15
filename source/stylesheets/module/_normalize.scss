@@ -42,23 +42,6 @@ body {
   font-family: 'Microsoft YaHei', 'Open Sans', 'Helvetica Neue', Arial, 'Hiragino Sans GB', 'WenQuanYi Micro Hei', sans-serif;
   font-size: 14px;
 
-  > div {
-    width: 100%;
-    min-height: 100%;
-    overflow: hidden;
-    color: $font-color-default;
-    background: $body-background;
-    -webkit-transition: opacity $theme-transition-time;
-    -moz-transition: opacity $theme-transition-time;
-    -ms-transition: opacity $theme-transition-time;
-    -o-transition: opacity $theme-transition-time;
-    transition: opacity $theme-transition-time;
-  }
-
-  &.hide > div {
-    opacity: 0;
-  }
-
   @media (min-width: $screen-xlg) {
     font-size: 16px;
   }
