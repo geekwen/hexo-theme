@@ -13,22 +13,6 @@
   -o-transition: all $basic-transition-time;
   transition: all $basic-transition-time;
 
-  @media (min-width: $screen-sm) {
-    right: 40px;
-  }
-
-  &:hover {
-    opacity: 1;
-
-    li:not([data-type="back-to-top"]) {
-      -webkit-transform: translateY(0);
-      -moz-transform: translateY(0);
-      -ms-transform: translateY(0);
-      -o-transform: translateY(0);
-      transform: translateY(0);
-    }
-  }
-
   li:not([data-type="back-to-top"]) {
     position: relative;
     margin-bottom: 15px;
@@ -41,6 +25,8 @@
     button {
       width: 20px;
       height: 20px;
+      margin: 0;
+      padding: 0;
       border: 2px solid #fff;
       -webkit-border-radius: 50px;
       -moz-border-radius: 50px;
@@ -55,9 +41,11 @@
       -o-transition: all $basic-transition-time;
       transition: all $basic-transition-time;
 
-      &:hover {
-        width: 30px;
-        height: 30px;
+      @media (min-width: $screen-sm) {
+        &:hover {
+          width: 30px;
+          height: 30px;
+        }
       }
     }
   }
@@ -79,5 +67,34 @@
 
   button:focus {
     outline: none;
+  }
+
+  @media (min-width: $screen-sm) {
+    right: 40px;
+
+    &:hover {
+      opacity: 1;
+
+      li:not([data-type="back-to-top"]) {
+        -webkit-transform: translateY(0);
+        -moz-transform: translateY(0);
+        -ms-transform: translateY(0);
+        -o-transform: translateY(0);
+        transform: translateY(0);
+      }
+    }
+  }
+
+  @media (max-width: $screen-sm - 1) {
+    bottom: 50px;
+    opacity: 0.4;
+
+    li:not([data-type="back-to-top"]) {
+      -webkit-transform: translateY(0) !important;
+      -moz-transform: translateY(0) !important;
+      -ms-transform: translateY(0) !important;
+      -o-transform: translateY(0) !important;
+      transform: translateY(0) !important;
+    }
   }
 }
