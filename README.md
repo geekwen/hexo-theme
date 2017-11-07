@@ -40,7 +40,7 @@ index_content:
   1: Geekwen
   2: 一个前端开发工程师的博客
 
-# 选择默认主题配色：white, yellow
+# 选择默认主题配色：white, yellow, dark
 default_theme: white
 
 # 在对应的标签页面显示副标题（不区分大小写，可以用 html 标签）

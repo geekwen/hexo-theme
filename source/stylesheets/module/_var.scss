@@ -37,11 +37,13 @@ $theme-transition-time: .5s;
 // ====================
 $font-color-default: $dark-darker;
 $font-color-theme-yellow: $yellow-darkest;
+$font-color-theme-dark: #b3b3b3;
 
 // body background color
 // ====================
 $body-background: #fff; // linear-gradient(135deg, #fff 10%, #fefefe 100%) no-repeat center center fixed;
 $body-background-theme-yellow: #ffe65d; // linear-gradient(135deg, #FDEB71 10%, #F8D800 100%) no-repeat center center fixed;
+$body-background-theme-dark: #1f1f1f; //#282531;
 
 // mark element
 // ====================
@@ -60,22 +62,24 @@ $home-link-hover-color: darken($dark-darker, 6%);
 $home-link-color-theme-yellow: $yellow-dark1;
 $home-link-hover-color-theme-yellow: $yellow-darkest;
 
+$home-link-color-theme-dark: $yellow-dark1;
+$home-link-hover-color-theme-dark: $yellow-dark1;
+
 // top nav color
 // ====================
 $top-nav-link-color: $gray-dark;
-
 $top-nav-link-color-theme-yellow: $yellow-dark2;
 
 // back to top button color
 // ====================
 $back-to-top-color: $dark;
-
 $back-to-top-color-theme-yellow: $yellow-dark3;
 
 // footer color
 // ====================
 $footer-font-color: $gray;
 $footer-font-color-theme-yellow: $yellow-dark1;
+$footer-font-color-theme-dark: $yellow-dark5;
 
 // tag cloud
 // ====================
@@ -107,6 +111,8 @@ $article-quote-border-left-color-theme-yellow: $article-meta-color-theme-yellow;
 $article-nav-color-theme-dark: $article-meta-color-theme-yellow;
 $article-nav-hover-color-theme-dark: $font-color-theme-yellow;
 
+$article-end-color-theme-dark: $footer-font-color-theme-dark;
+
 // code highlights
 // ====================
 $highlight-foreground-inline: $green-darkest;
@@ -129,3 +135,10 @@ $highlight-foreground-theme-yellow: $yellow-dark5;
 $highlight-background-theme-yellow: $yellow-dark;
 $highlight-comment-theme-yellow: $yellow-dark2;
 $highlight-line-number-color-theme-yellow: #666;
+
+$highlight-foreground-inline-theme-dark: $body-background-theme-dark;
+$highlight-background-inline-theme-dark: $yellow-dark0;
+$highlight-foreground-theme-dark: #cec6a8;
+$highlight-background-theme-dark: #333;
+$highlight-comment-theme-dark: #797461;
+$highlight-line-number-color-theme-dark: #666;
