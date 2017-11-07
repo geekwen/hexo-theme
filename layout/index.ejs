@@ -2,18 +2,15 @@
     <div id="home-content">
         <h1>
             <% if (theme.index_content['1']) { %>
-            <p><%= theme.index_content['1'] %></p>
-            <% } else {%>
-            Hello
+            <%= theme.index_content['1'] %>
+            <% } else { %>
+            Hello World
             <% } %>
         </h1>
-        <p>
-            <% if (theme.index_content['2']) { %>
-            <p><%= theme.index_content['2'] %></p>
-            <% } else { %>
-            This is a blog
-            <% } %>
-        </p>
+
+        <% if (theme.index_content['2']) { %>
+        <p><%= theme.index_content['2'] %></p>
+        <% } %>
     </div>
 
     <nav id="site-nav">
