@@ -6,23 +6,23 @@ menu:
   关于: /about
 
 # 博客建设时间：显示在页脚
-blog_since: 2015
+blog_since: 2017
 
 # 网站链接：显示在左上角
-site_url: geekwen.com
+site_url: example.com
 
 # 网站logo链接：显示在左上角
 logo_url: /images/logo.png
 
 # 首页正文内容：分别对应第一行和第二行
 index_content:
-  1: Geekwen
-  2: 一个前端开发工程师的博客
+  1: Hello World
+  2: This is a new blog
 
-# 选择默认主题配色：white, yellow
+# 选择默认主题配色：white, yellow, dark
 default_theme: white
 
 # 在对应的标签页面显示副标题（不区分大小写，可以用 html 标签）
 tag:
-  webpack: <a href="https://doc.webpack-china.org" target="_blank">webpack</a> 是一个现代 JavaScript 应用程序的模块打包器(module bundler)。
-  node.js: <a href="https://nodejs.org" target="_blank">Node.js</a> 是一个能够在服务器端运行JavaScript的开放源代码、跨平台JavaScript运行环境。
+  webpack: <a href="https://doc.webpack-china.org" target="_blank">Webpack</a> 是一个现代 JavaScript 应用程序的模块打包器(module bundler)。
+  node.js: <a href="https://nodejs.org" target="_blank">Node.js</a> 是一个能够在服务器端运行 JavaScript 的开放源代码、跨平台 JavaScript 运行环境。
