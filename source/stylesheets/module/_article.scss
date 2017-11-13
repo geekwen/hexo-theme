@@ -94,6 +94,18 @@
       margin-bottom: 15px;
     }
 
+    img {
+      margin-top: 25px;
+      margin-bottom: 25px;
+
+      &.has-info + p {
+        margin: -20px 20% 25px;
+        text-align: center;
+        font-style: italic;
+        font-size: 12px;
+      }
+    }
+
     a {
       color: $article-link-color;
     }
