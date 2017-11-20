@@ -36,7 +36,7 @@
 
     <%- css('stylesheets/index.min.css') %>
 </head>
-<body data-theme="<%= theme.default_theme || 'white' %>">
+<body data-theme="<%= theme.default_theme || 'white' %>" data-type="<%= page.theme_image ? 'has-theme-image' : '' %>">
 <span id="#TOP"></span>
 <div id="body-inner-container">
     <% if (is_home()){ %>

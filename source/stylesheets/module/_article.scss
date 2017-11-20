@@ -1,5 +1,28 @@
 @charset "utf-8";
 
+#post-theme-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%;
+  height: 100vh;
+  background-color: #333333;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+  }
+}
+
 #page-subtitle + #article-post {
   margin-top: 50px;
 }
@@ -52,10 +75,24 @@
   }
 }
 
+body[data-type="has-theme-image"] {
+  #page-title {
+    color: #fdfdfd;
+    margin-top: 40vh;
+    margin-bottom: calc(100vh - 40vh - 31px - 60px);
+    text-align: center;
+  }
+
+  &[data-theme="yellow"] {
+    #page-title {
+      color: $yellow-dark;
+    }
+  }
+}
+
 #article-post {
   .post-inner-wrap {
     position: relative;
-    overflow: hidden;
 
     &::after {
       content: "— 完 —";

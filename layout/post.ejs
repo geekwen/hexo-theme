@@ -1,10 +1,16 @@
+<% if (page.theme_image) { %>
+<div id="post-theme-image" style="background-image: url(<%- page.theme_image %>)"></div>
+<% } %>
+
 <article id="article-post" class="post">
     <div class="post-inner-wrap">
         <% if (page.layout != "page"){ %>
         <h1 id="page-title"><%= page.title %></h1>
 
         <ul class="post-meta list-inline">
-            <li>时间：<time><%= date(page.date, 'YYYY-MM-DD') %></time></li>
+            <li>时间：
+                <time><%= date(page.date, 'YYYY-MM-DD') %></time>
+            </li>
             <% if (page.tags && page.tags.length){ %>
             <li>
                 <%- list_tags(page.tags, {

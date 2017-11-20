@@ -8,21 +8,34 @@
 @import "module/theme-selector";
 
 body {
+  color: $font-color-default;
+  background: $body-background;
+  -webkit-transition: background ease-in-out $theme-transition-time;
+  -moz-transition: background ease-in-out $theme-transition-time;
+  -ms-transition: background ease-in-out $theme-transition-time;
+  -o-transition: background ease-in-out $theme-transition-time;
+  transition: background ease-in-out $theme-transition-time;
+
   > div {
     width: 100%;
     min-height: 100%;
     overflow: hidden;
-    color: $font-color-default;
-    background: $body-background;
-    -webkit-transition: opacity $theme-transition-time;
-    -moz-transition: opacity $theme-transition-time;
-    -ms-transition: opacity $theme-transition-time;
-    -o-transition: opacity $theme-transition-time;
-    transition: opacity $theme-transition-time;
+    -webkit-transition: opacity ease-in-out $theme-transition-time;
+    -moz-transition: opacity ease-in-out $theme-transition-time;
+    -ms-transition: opacity ease-in-out $theme-transition-time;
+    -o-transition: opacity ease-in-out $theme-transition-time;
+    transition: opacity ease-in-out $theme-transition-time;
   }
 
   &.hide > div {
     opacity: 0;
+  }
+}
+
+body[data-type="has-theme-image"]:not([data-theme="yellow"]) {
+  #page-masthead > a,
+  #site-nav {
+    color: $home-link-color !important;
   }
 }
 
@@ -126,7 +139,7 @@ body {
 #page-main-inner-wrap {
   width: 80%;
   max-width: 700px;
-  //overflow: hidden;
+  overflow: hidden;
   margin: 50px auto;
 }
 

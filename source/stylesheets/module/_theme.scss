@@ -28,10 +28,10 @@ $theme-number: length(map-keys($theme-map));
 }
 
 body[data-theme="yellow"] {
-  > div {
+  //> div {
     color: $font-color-theme-yellow;
     background: map_get($theme-map, "yellow");
-  }
+  //}
 
   hr {
     border-color: $yellow-dark;
@@ -126,10 +126,10 @@ body[data-theme="yellow"] {
 }
 
 body[data-theme="dark"] {
-  > div {
+  //> div {
     color: $font-color-theme-dark;
     background: map_get($theme-map, "dark");
-  }
+  //}
 
   hr {
     border-color: $dark-light;
