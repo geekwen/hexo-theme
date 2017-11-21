@@ -114,10 +114,8 @@ body[data-type="has-theme-image"] {
   }
 
   blockquote {
-    margin-left: 20px;
-    margin-right: 20px;
-    padding-left: 15px;
-    padding-right: 15px;
+    margin: 30px 20px !important;
+    padding: 5px 15px;
     border-left: 5px solid $article-quote-border-left-color;
     color: $article-quote-color;
 
