@@ -5,7 +5,7 @@
     <%
     var title = page.title;
     if (is_archive()) {
-        title = '文章';
+        title = '所有文章';
     }
     else if (is_tag()) {
         title = '#' + page.tag;
@@ -36,51 +36,62 @@
 
     <%- css('stylesheets/index.min.css') %>
 </head>
-<body data-theme="<%= theme.default_theme || 'white' %>" data-type="<%= page.theme_image ? 'has-theme-image' : '' %>">
+<body data-theme="<%= theme.default_theme || 'white' %>"
+      <% if (is_home()) { %>style="background-image: url(<%= theme.home_background_image %>)" <% } %>}
+        %>
+>
 <span id="#TOP"></span>
 <div id="body-inner-container">
     <% if (is_home()){ %>
     <%- body %>
     <% }else{ %>
-    <header id="page-masthead">
-        <a href="/">
-            <% if (theme.logo_url) { %>
-            <img id="logo" src="<%= theme.logo_url %>" alt="logo">
-            <% } %>
+    <header id="page-masthead" style="background-image: url(<%- page.theme_image || theme.default_page_image %>)">
+        <div>
+            <a id="page-logo" href="/">
+                <% if (theme.logo_url) { %>
+                <img id="logo" src="<%= theme.logo_url %>" alt="logo">
+                <% } %>
 
-            <% if (theme.site_url) { %>
-            <%= theme.site_url %>
-            <% } else { %>
-            Home
-            <% } %>
-        </a>
-        <nav id="site-nav">
-            <ul class="list-inline">
-                <% for(var key in theme.menu){ %>
-                <% if (theme.menu.hasOwnProperty(key)){ %>
-                <li><a href="<%- theme.menu[key] %>"><%= key %></a></li>
+                <% if (theme.site_url) { %>
+                <%= theme.site_url %>
+                <% } else { %>
+                Home
                 <% } %>
-                <% } %>
-            </ul>
-        </nav>
+            </a>
+            <nav id="site-nav">
+                <ul class="list-inline">
+                    <% for(var key in theme.menu){ %>
+                    <% if (theme.menu.hasOwnProperty(key)){ %>
+                    <li><a href="<%- theme.menu[key] %>"><%= key %></a></li>
+                    <% } %>
+                    <% } %>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <main id="page-main-container">
         <div id="page-main-inner-wrap">
             <div id="page-content">
-                <% if (!is_post()){ %>
-                <% if (title){ %>
-                <h1 id="page-title"><%= title %></h1>
-                <% }else{ %>
-                <h1 id="page-title"><%= config.title %></h1>
-                <% } %>
+                <div id="page-title-header">
+                    <% if (!is_post()){ %>
+                    <h1 id="page-title">
+                        <% if (title){ %>
+                        <%= title %>
+                        <% }else{ %>
+                        <%= config.title %>
+                        <% } %>
+                    </h1>
 
-                <% if (page.page_subtitle){ %>
-                <p id="page-subtitle"><%- page.page_subtitle %></p>
-                <% } else if (is_tag() && theme.tag && theme.tag[title.replace(/^#/, '').toLocaleLowerCase()]) { %>
-                <p id="page-subtitle"><%- theme.tag[title.replace(/^#/, '').toLocaleLowerCase()] %></p>
-                <% } %>
-                <% } %>
+                    <p id="page-subtitle">
+                        <% if (page.page_subtitle){ %>
+                        <%- page.page_subtitle %>
+                        <% } else if (is_tag() && theme.tag && theme.tag[title.replace(/^#/, '').toLocaleLowerCase()]) { %>
+                        <%- theme.tag[title.replace(/^#/, '').toLocaleLowerCase()] %>
+                        <% } %>
+                    </p>
+                    <% } %>
+                </div>
                 <%- body %>
             </div>
         </div>
@@ -98,7 +109,6 @@
         <p>Since <%= theme.blog_since %></p>
         <% } %>
     </footer>
-    <% } %>
 
     <aside id="theme-selector">
         <ul class="list-unstyled">
@@ -124,6 +134,7 @@
             <% } %>
         </ul>
     </aside>
+    <% } %>
 </div>
 
 <% if (theme.show_theme_selector) { %>

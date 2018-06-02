@@ -7,10 +7,6 @@
   z-index: -1;
   width: 100%;
   height: 60vh;
-  background-color: #333333;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
 
   &::before {
     content: '';
@@ -28,9 +24,13 @@
 }
 
 #page-title {
-  margin-top: 10vh;
-  font-size: 2rem;
+  //margin-top: 10vh;
+  font-size: 1.6rem;
   line-height: 1.4;
+
+  @media (min-width: $screen-xs) {
+    font-size: 2rem;
+  }
 }
 
 #page-content {
@@ -42,7 +42,6 @@
 }
 
 .post-meta {
-  margin-bottom: 60px;
   font-size: .875rem;
   color: $article-meta-color;
 
@@ -76,47 +75,9 @@
   }
 }
 
-body[data-type="has-theme-image"] {
-  #post-head {
-    position: absolute;
-    top: 6vh;
-    left: 0;
-    width: 100%;
-    z-index: 10;
-    color: #fdfdfd;
-
-    @media (min-width: $screen-sm) {
-      top: 15vh;
-    }
-  }
-
-  #page-title {
-    margin-top: 0;
-
-    &,
-    + .post-meta {
-      color: inherit;
-    }
-
-    + .post-meta {
-      margin-bottom: 0;
-    }
-  }
-
-  .post-inner-wrap {
-    padding-top: 50vh;
-  }
-
-  &[data-theme="yellow"] {
-    #page-title {
-      color: $yellow-dark;
-    }
-  }
-}
-
 #article-post {
   .post-inner-wrap {
-    position: relative;
+    //position: relative;
 
     &::after {
       content: "— 完 —";

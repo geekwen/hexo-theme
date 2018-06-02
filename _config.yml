@@ -1,7 +1,7 @@
 # 导航栏设置
 menu:
   首页: /
-  文章: /archives
+  归档: /archives
   标签: /tags
   关于: /about
 
@@ -24,6 +24,12 @@ default_theme: white
 
 # 是否在页面显示主题选择工具
 show_theme_selector: false
+
+# 首页的背景图
+home_background_image: /images/top.jpg
+
+# 默认页面顶部图片
+default_page_image: /images/top.jpg
 
 # 在对应的标签页面显示副标题（不区分大小写，可以用 html 标签）
 tag:
