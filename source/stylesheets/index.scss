@@ -80,7 +80,7 @@ body[data-type="has-theme-image"]:not([data-theme="yellow"]) {
 
 #index-mastfoot,
 #page-mastfoot {
-  font-size: 12px;
+  font-size: 0.75rem;
   line-height: 1.6;
   color: $footer-font-color;
 
@@ -101,7 +101,7 @@ body[data-type="has-theme-image"]:not([data-theme="yellow"]) {
   -o-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   white-space: nowrap;
-  font-size: 18px;
+  font-size: 1.125rem;
   text-align: center;
 
   #site-nav {
@@ -147,7 +147,7 @@ body[data-type="has-theme-image"]:not([data-theme="yellow"]) {
   margin-top: 10px;
   margin-bottom: 0;
   line-height: 30px;
-  font-size: 14px;
+  font-size: .875rem;
   color: $top-nav-link-color;
 
   > a {

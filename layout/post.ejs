@@ -5,21 +5,23 @@
 <article id="article-post" class="post">
     <div class="post-inner-wrap">
         <% if (page.layout != "page"){ %>
-        <h1 id="page-title"><%= page.title %></h1>
+        <div id="post-head">
+            <h1 id="page-title"><%= page.title %></h1>
 
-        <ul class="post-meta list-inline">
-            <li>时间：
-                <time><%= date(page.date, 'YYYY-MM-DD') %></time>
-            </li>
-            <% if (page.tags && page.tags.length){ %>
-            <li>
-                <%- list_tags(page.tags, {
-                    'show_count': false,
-                    'class': 'post-tags'
-                }) %>
-            </li>
-            <% } %>
-        </ul>
+            <ul class="post-meta list-inline">
+                <li>时间：
+                    <time><%= date(page.date, 'YYYY-MM-DD') %></time>
+                </li>
+                <% if (page.tags && page.tags.length){ %>
+                <li>
+                    <%- list_tags(page.tags, {
+                        'show_count': false,
+                        'class': 'post-tags'
+                    }) %>
+                </li>
+                <% } %>
+            </ul>
+        </div>
         <% } %>
 
         <div class="content">

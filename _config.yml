@@ -22,6 +22,9 @@ index_content:
 # 选择默认主题配色：white, yellow, dark
 default_theme: white
 
+# 是否在页面显示主题选择工具
+show_theme_selector: false
+
 # 在对应的标签页面显示副标题（不区分大小写，可以用 html 标签）
 tag:
   webpack: <a href="https://doc.webpack-china.org" target="_blank">Webpack</a> 是一个现代 JavaScript 应用程序的模块打包器(module bundler)。

@@ -103,13 +103,19 @@
     <aside id="theme-selector">
         <ul class="list-unstyled">
             <li data-theme="white">
+                <% if (theme.show_theme_selector) { %>
                 <button></button>
+                <% } %>
             </li>
             <li data-theme="yellow">
+                <% if (theme.show_theme_selector) { %>
                 <button></button>
+                <% } %>
             </li>
             <li data-theme="dark">
+                <% if (theme.show_theme_selector) { %>
                 <button></button>
+                <% } %>
             </li>
             <% if (!is_home()) { %>
             <li data-type="back-to-top">
