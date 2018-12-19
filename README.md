@@ -12,7 +12,7 @@
 
 ## DEMO
 
-[geekwen.com](http://geekwen.com)
+[DEMO](http://geekwen.github.io)
 
 ## 快速入门
 
@@ -30,7 +30,7 @@ menu:
 blog_since: 2015
 
 # 网站链接：显示在左上角
-site_url: geekwen.com
+site_url: geekwen
 
 # 网站logo链接：显示在左上角
 logo_url: /images/logo.png
@@ -143,6 +143,6 @@ feed:
 
 licence: [WTFPL](https://github.com/anak10thn/WTFPL)
 
-希望能够保留页脚中hexo和开发者的注明（Powered by [hexo](http://hexo.io), [theme](https://github.com/geekwen/hexo-theme) by [Geekwen](http://geekwen.com). ），并保留相关链接。
+希望能够保留页脚中hexo和开发者的注明（Powered by [hexo](http://hexo.io), [theme](https://github.com/geekwen/hexo-theme) by [Geekwen](http://geekwen.github.io). ），并保留相关链接。
 
 祝生活愉快，XD！
